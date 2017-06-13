@@ -29,8 +29,8 @@ var bindoOAuthUrl = locals.bindoUrl + '/oauth/authorize';
 
 //oauth authorization request body
 var authRequestBody = {
-    username: "white_horse_api",
-    password: "EFI8mVqlouwSERes",
+    username: locals.bindoUsername,
+    password: locals.bindoPassword,
     grant_type: "password",
     client_id: locals.bindo_client_id,
     client_secret: locals.bindo_client_secret
