@@ -1,8 +1,11 @@
 var express = require('express');
 var request = require('request');
+var path = require('path');
 var locals = require("./config/local.js");
 var controllers = require("./api/controllers.js");
 var app = express();
+
+app.use(express.static(path.join(__dirname, 'dist')));
 
 /*
  *  API Routes
@@ -12,6 +15,13 @@ app.get('/listings', controllers.getListings);
 app.get('/departments', controllers.getDepartments);
 
 app.get('/customers', controllers.getCustomers);
+
+/*
+ *  Static HTML Routes
+ */
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist/index.html'));
+});
 
 
 //oauth authorization request url
