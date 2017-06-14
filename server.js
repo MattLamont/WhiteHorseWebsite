@@ -52,7 +52,7 @@ request.post({
         process.env.BINDO_ACCESS_TOKEN = resp_data.data.access_token;
 
         app.listen(process.env.PORT || 3000);
-        console.log("Server started. Listening on port 3000");
+        console.log("Server started. Listening on port " + process.env.PORT || "3000" );
     }
 
 });
