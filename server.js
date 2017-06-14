@@ -1,7 +1,7 @@
 var express = require('express');
 var request = require('request');
 var path = require('path');
-var locals = require("./config/local.js");
+//var locals = require("./config/local.js");
 var controllers = require("./api/controllers.js");
 var app = express();
 
