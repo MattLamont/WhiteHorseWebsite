@@ -1,4 +1,4 @@
-var locals = require("../config/local.js");
+//var locals = require("../config/local.js");
 var request = require('request');
 
 /*
