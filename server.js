@@ -36,6 +36,8 @@ var authRequestBody = {
     client_secret: process.env.BINDO_CLIENT_SECRET
 };
 
+console.log( process.env.BINDO_URL);
+
 //Get the bindo oauth access token and then start server
 request.post({
     headers: {
