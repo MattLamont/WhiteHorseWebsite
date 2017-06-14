@@ -25,15 +25,15 @@ app.get('/', (req, res) => {
 
 
 //oauth authorization request url
-var bindoOAuthUrl = locals.bindoUrl + '/oauth/authorize';
+var bindoOAuthUrl = process.env.BINDO_URL + '/oauth/authorize';
 
 //oauth authorization request body
 var authRequestBody = {
-    username: locals.bindoUsername,
-    password: locals.bindoPassword,
+    username: process.env.BINDO_USERNAME,
+    password: process.env.BINDO_PASSWORD,
     grant_type: "password",
-    client_id: locals.bindo_client_id,
-    client_secret: locals.bindo_client_secret
+    client_id: process.env.BINDO_CLIENT_ID,
+    client_secret: process.env.BINDO_CLIENT_SECRET
 };
 
 //Get the bindo oauth access token and then start server
@@ -49,7 +49,7 @@ request.post({
         console.log(error);
     } else {
         var resp_data = JSON.parse(res.body)
-        locals.bindoAccessToken = resp_data.data.access_token;
+        process.env.BINDO_ACCESS_TOKEN = resp_data.data.access_token;
 
         app.listen(process.env.PORT || 3000);
         console.log("Server started. Listening on port 3000");
