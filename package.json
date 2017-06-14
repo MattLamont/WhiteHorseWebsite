@@ -10,7 +10,6 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "run": "env-cmd .env node server.js",
-    "postinstall": "ng build --aot -prod"
   },
   "private": true,
   "dependencies": {
