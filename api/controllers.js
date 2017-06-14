@@ -1,4 +1,4 @@
-var locals = require("../config/local.js");
+//var locals = require("../config/local.js");
 var request = require('request');
 
 /*
@@ -6,15 +6,15 @@ var request = require('request');
  */
 exports.getListings = function(req, res) {
 
-    var listingUrl = locals.bindoUrl +
+    var listingUrl = process.env.BINDO_URL +
         '/stores/' +
-        locals.bindoStoreSlug +
+        process.env.BINDO_STORE_SLUG +
         req.url;
 
     var options = {
         url: listingUrl,
         headers: {
-            'authorization': 'OAuth ' + locals.bindoAccessToken,
+            'authorization': 'OAuth ' + process.env.BINDO_ACCESS_TOKEN,
             'accept': 'application/vnd.bindo-v201501+json'
         }
     };
@@ -28,15 +28,15 @@ exports.getListings = function(req, res) {
  */
 exports.getDepartments = function(req, res) {
 
-    var listingUrl = locals.bindoUrl +
+    var listingUrl = process.env.BINDO_URL +
         '/stores/' +
-        locals.bindoStoreSlug +
+        process.env.BINDO_STORE_SLUG +
         req.url;
 
     var options = {
         url: listingUrl,
         headers: {
-            'authorization': 'OAuth ' + locals.bindoAccessToken,
+            'authorization': 'OAuth ' + process.env.BINDO_ACCESS_TOKEN,
             'accept': 'application/vnd.bindo-v201501+json'
         }
     };
@@ -50,15 +50,15 @@ exports.getDepartments = function(req, res) {
  */
 exports.getCustomers = function(req, res) {
 
-    var listingUrl = locals.bindoUrl +
+    var listingUrl = process.env.BINDO_URL +
         '/stores/' +
-        locals.bindoStoreId +
+        process.env.BINDO_STORE_ID +
         req.url;
 
     var options = {
         url: listingUrl,
         headers: {
-            'authorization': 'OAuth ' + locals.bindoAccessToken,
+            'authorization': 'OAuth ' + process.env.BINDO_ACCESS_TOKEN,
             'accept': 'application/vnd.bindo-v201501+json'
         }
     };

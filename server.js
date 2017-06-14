@@ -1,8 +1,11 @@
 var express = require('express');
 var request = require('request');
-var locals = require("./config/local.js");
+var path = require('path');
+//var locals = require("./config/local.js");
 var controllers = require("./api/controllers.js");
 var app = express();
+
+app.use(express.static(path.join(__dirname, 'dist')));
 
 /*
  *  API Routes
@@ -13,18 +16,27 @@ app.get('/departments', controllers.getDepartments);
 
 app.get('/customers', controllers.getCustomers);
 
+/*
+ *  Static HTML Routes
+ */
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist/index.html'));
+});
+
 
 //oauth authorization request url
-var bindoOAuthUrl = locals.bindoUrl + '/oauth/authorize';
+var bindoOAuthUrl = process.env.BINDO_URL + '/oauth/authorize';
 
 //oauth authorization request body
 var authRequestBody = {
-    username: "white_horse_api",
-    password: "EFI8mVqlouwSERes",
+    username: process.env.BINDO_USERNAME,
+    password: process.env.BINDO_PASSWORD,
     grant_type: "password",
-    client_id: locals.bindo_client_id,
-    client_secret: locals.bindo_client_secret
+    client_id: process.env.BINDO_CLIENT_ID,
+    client_secret: process.env.BINDO_CLIENT_SECRET
 };
+
+console.log( process.env.BINDO_URL);
 
 //Get the bindo oauth access token and then start server
 request.post({
@@ -39,10 +51,10 @@ request.post({
         console.log(error);
     } else {
         var resp_data = JSON.parse(res.body)
-        locals.bindoAccessToken = resp_data.data.access_token;
+        process.env.BINDO_ACCESS_TOKEN = resp_data.data.access_token;
 
         app.listen(process.env.PORT || 3000);
-        console.log("Server started. Listening on port 3000");
+        console.log("Server started. Listening on port " + process.env.PORT || "3000" );
     }
 
 });
