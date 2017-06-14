@@ -5,6 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "env-cmd .env node server.js",
+    "postinstall": "ng build",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
