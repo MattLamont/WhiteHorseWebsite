@@ -13,7 +13,7 @@ export class AppComponent {
 
 
   onDepartmentLinkClicked(link: String) {
-    let newLink = ['/product' , link ];
+    let newLink = ['/department' , link ];
     this.router.navigate( newLink );
   }
 }

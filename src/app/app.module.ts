@@ -10,13 +10,15 @@ import { HomepageViewComponent } from './homepage-view/homepage-view.component';
 import { ProductViewComponent } from './product-view/product-view.component';
 
 import { routing } from './app.routes';
+import { DepartmentViewComponent } from './department-view/department-view.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     HomepageViewComponent,
-    ProductViewComponent
+    ProductViewComponent,
+    DepartmentViewComponent
   ],
   imports: [
     BrowserModule,

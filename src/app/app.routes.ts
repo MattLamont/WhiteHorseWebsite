@@ -2,6 +2,7 @@ import { ModuleWithProviders }  from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomepageViewComponent } from './homepage-view/homepage-view.component';
 import { ProductViewComponent } from './product-view/product-view.component';
+import { DepartmentViewComponent } from './department-view/department-view.component';
 
 // Route Configuration
 export const routes: Routes = [
@@ -12,8 +13,9 @@ export const routes: Routes = [
   },
 
   { path: 'home', component: HomepageViewComponent },
-  { path: 'product', component: ProductViewComponent },
-  { path: 'product/:department', component: ProductViewComponent }
+
+  { path: 'department/:name', component: DepartmentViewComponent },
+  { path: 'product/:id', component: ProductViewComponent }
 ];
 
 
