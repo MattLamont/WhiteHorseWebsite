@@ -53,4 +53,9 @@ export class NavbarComponent implements OnInit {
       this.router.navigate( newLink );
   }
 
+  clickLogoLink(){
+      let newLink = ['/home'];
+      this.router.navigate( newLink );
+  }
+
 }

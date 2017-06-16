@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router} from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 
 @Component({
@@ -12,7 +12,7 @@ export class ProductViewComponent implements OnInit {
   private sub: any;
   private department: String;
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private router: Router) {
   }
 
   ngOnInit() {
