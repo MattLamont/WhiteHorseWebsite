@@ -26,13 +26,14 @@ export class NavbarComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+      /*
     this.bindoApiService
       .getDepartments()
       .subscribe(
       (departments) => {
         console.log(departments);
       }
-      );
+  );*/
   }
 
   @Output()
