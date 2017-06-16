@@ -12,7 +12,8 @@ export const routes: Routes = [
   },
 
   { path: 'home', component: HomepageViewComponent },
-  { path: 'product', component: ProductViewComponent }
+  { path: 'product', component: ProductViewComponent },
+  { path: 'product/:department', component: ProductViewComponent }
 ];
 
 

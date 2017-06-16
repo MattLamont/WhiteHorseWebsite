@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Output , EventEmitter } from '@angular/core';
 import {BindoApiService} from '../bindo-api.service';
 
 @Component({
@@ -33,6 +33,13 @@ export class NavbarComponent implements OnInit {
         console.log(departments);
       }
       );
+  }
+
+  @Output()
+  navigateLink: EventEmitter<String> = new EventEmitter();
+
+  clickLink( link : String ){
+      this.navigateLink.emit( link );
   }
 
 }

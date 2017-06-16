@@ -38,7 +38,9 @@
           </ul>
 
           <ul class="nav navbar-nav nav navbar-nav side-nav text-center">
-            <li *ngFor="let department of departments" class="active"><a href="#">{{department}}</a></li>
+            <li *ngFor="let department of departments" class="active" (click)="clickLink(department)">
+              <a>{{department}}</a>
+            </li>
           </ul>
           <!--
           <ul class="nav navbar-nav nav navbar-nav side-nav text-center">

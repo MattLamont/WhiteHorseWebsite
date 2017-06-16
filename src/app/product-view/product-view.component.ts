@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-product-view',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductViewComponent implements OnInit {
 
-  constructor() { }
+  private sub: any;
+  private department: String;
+
+  constructor(private route: ActivatedRoute) {
+  }
 
   ngOnInit() {
+    // Subscribe to route params
+    this.sub = this.route.params.subscribe(params => {
+      this.department = params['department'];
+    });
   }
+
 
 }
