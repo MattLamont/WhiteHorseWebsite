@@ -11,6 +11,9 @@ import { ProductViewComponent } from './product-view/product-view.component';
 
 import { routing } from './app.routes';
 import { DepartmentViewComponent } from './department-view/department-view.component';
+import { FooterComponent } from './footer/footer.component';
+import { AboutViewComponent } from './about-view/about-view.component';
+import { ContactViewComponent } from './contact-view/contact-view.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { DepartmentViewComponent } from './department-view/department-view.compo
     NavbarComponent,
     HomepageViewComponent,
     ProductViewComponent,
-    DepartmentViewComponent
+    DepartmentViewComponent,
+    FooterComponent,
+    AboutViewComponent,
+    ContactViewComponent
   ],
   imports: [
     BrowserModule,

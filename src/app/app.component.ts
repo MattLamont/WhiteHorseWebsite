@@ -11,9 +11,4 @@ export class AppComponent {
   constructor( private route: ActivatedRoute, private router: Router) {
   }
 
-
-  onDepartmentLinkClicked(link: String) {
-    let newLink = ['/department' , link ];
-    this.router.navigate( newLink );
-  }
 }

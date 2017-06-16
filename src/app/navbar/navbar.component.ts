@@ -1,4 +1,5 @@
 import { Component, OnInit , Output , EventEmitter } from '@angular/core';
+import { ActivatedRoute, Router} from '@angular/router';
 import {BindoApiService} from '../bindo-api.service';
 
 @Component({
@@ -23,7 +24,7 @@ export class NavbarComponent implements OnInit {
       'CBD Oil'
   ];
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
       /*
@@ -36,11 +37,20 @@ export class NavbarComponent implements OnInit {
   );*/
   }
 
-  @Output()
-  navigateLink: EventEmitter<String> = new EventEmitter();
 
   clickLink( link : String ){
-      this.navigateLink.emit( link );
+      let newLink = ['/department' , link ];
+      this.router.navigate( newLink );
+  }
+
+  clickAboutLink(){
+      let newLink = ['/about'];
+      this.router.navigate( newLink );
+  }
+
+  clickContactLink(){
+      let newLink = ['/contact'];
+      this.router.navigate( newLink );
   }
 
 }

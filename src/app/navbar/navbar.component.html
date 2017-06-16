@@ -41,6 +41,12 @@
             <li *ngFor="let department of departments" class="active" (click)="clickLink(department)">
               <a>{{department}}</a>
             </li>
+            <li class="active" (click)="clickAboutLink()">
+              <a>About</a>
+            </li>
+            <li class="active" (click)="clickContactLink()">
+              <a>Contact</a>
+            </li>
           </ul>
           <!--
           <ul class="nav navbar-nav nav navbar-nav side-nav text-center">
