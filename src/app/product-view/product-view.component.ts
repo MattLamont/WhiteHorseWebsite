@@ -25,7 +25,7 @@ export class ProductViewComponent implements OnInit {
     this.sub = this.route.params.subscribe(params => {
       this.product_id = params['id'];
 
-      var url_params = "/" + this.product_id;
+      const url_params = '/' + this.product_id;
 
       this.bindoApiService
         .getListings( url_params )
