@@ -44,3 +44,4 @@ Thumbs.db
 # config files
 config/local.js
 .env
+assets/bower_components
