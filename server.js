@@ -10,6 +10,8 @@ app.use(express.static(path.join(__dirname, 'dist')));
 /*
  *  API Routes
  */
+app.get('/listings/*', controllers.getListing);
+
 app.get('/listings', controllers.getListings);
 
 app.get('/departments', controllers.getDepartments);
@@ -53,8 +55,12 @@ request.post({
         var resp_data = JSON.parse(res.body)
         process.env.BINDO_ACCESS_TOKEN = resp_data.data.access_token;
 
-        app.listen(process.env.PORT || 3000);
-        console.log("Server started. Listening on port " + process.env.PORT || "3000" );
+        if( !process.env.PORT ){
+            process.env.PORT = 3032;
+        }
+
+        app.listen(process.env.PORT);
+        console.log("Server started. Listening on port " + process.env.PORT );
     }
 
 });
