@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
 
-  bindoApiUrl: 'http://localhost:3032'
+  bindoApiUrl: 'https://white-horse-website.herokuapp.com'
 };
