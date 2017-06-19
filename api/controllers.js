@@ -1,6 +1,29 @@
 //var locals = require("../config/local.js");
 var request = require('request');
 
+
+
+exports.getListing = function(req, res) {
+
+    var listingUrl = process.env.BINDO_URL +
+        '/stores/' +
+        process.env.BINDO_STORE_SLUG +
+        req.url;
+
+    console.log( listingUrl );
+
+    var options = {
+        url: listingUrl,
+        headers: {
+            'authorization': 'OAuth ' + process.env.BINDO_ACCESS_TOKEN,
+            'accept': 'application/vnd.bindo-v201501+json'
+        }
+    };
+
+    req.pipe(request(options)).pipe(res);
+}
+
+
 /*
  *  Get store listings controller
  */

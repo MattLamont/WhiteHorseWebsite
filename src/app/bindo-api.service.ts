@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
-import { Http } from '@angular/http';
+import { Http, Response } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
@@ -28,8 +28,13 @@ export class BindoApiService {
         .catch( this.handleError );
   }
 
-  public getListings(){
-
+  public getListings( params: String ){
+      return this.http
+        .get( BINDO_API_URL + '/listings' + params )
+        .map( response => {
+            return response.json();
+        })
+        .catch( this.handleError );
   }
 
   public getCustomers(){

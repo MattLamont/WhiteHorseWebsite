@@ -6,5 +6,5 @@
 export const environment = {
   production: false,
 
-  bindoApiUrl: 'http://localhost:3000'
+  bindoApiUrl: 'http://localhost:3032'
 };

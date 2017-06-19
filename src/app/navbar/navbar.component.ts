@@ -1,4 +1,4 @@
-import { Component, OnInit , Output , EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute, Router} from '@angular/router';
 import {BindoApiService} from '../bindo-api.service';
 
@@ -10,52 +10,54 @@ import {BindoApiService} from '../bindo-api.service';
 })
 export class NavbarComponent implements OnInit {
 
-  private bindoApiService: BindoApiService;
+  private departments = {};
 
-  private departments = [
-      'Hardware',
-      'E-Liquid',
-      'Accessories',
-      'Wax and Dry Herb',
-      'Apparel',
-      'Drink',
-      'White Horse Product',
-      'Coils',
-      'CBD Oil'
-  ];
+  /*
+    private departments = [
+        'Hardware',
+        'E-Liquid',
+        'Accessories',
+        'Wax and Dry Herb',
+        'Apparel',
+        'Drink',
+        'White Horse Product',
+        'Coils',
+        'CBD Oil'
+    ];*/
 
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor(private route: ActivatedRoute, private router: Router,
+    private bindoApiService: BindoApiService) { }
 
   ngOnInit() {
-      /*
+
     this.bindoApiService
       .getDepartments()
       .subscribe(
       (departments) => {
-        console.log(departments);
+        this.departments = departments.data.departments;
       }
-  );*/
+      );
   }
 
 
-  clickLink( link : String ){
-      let newLink = ['/department' , link ];
-      this.router.navigate( newLink );
+  clickLink( name , id ) {
+    let newLink = ['/department', name , id];
+    this.router.navigate(newLink);
   }
 
-  clickAboutLink(){
-      let newLink = ['/about'];
-      this.router.navigate( newLink );
+  clickAboutLink() {
+    let newLink = ['/about'];
+    this.router.navigate(newLink);
   }
 
-  clickContactLink(){
-      let newLink = ['/contact'];
-      this.router.navigate( newLink );
+  clickContactLink() {
+    let newLink = ['/contact'];
+    this.router.navigate(newLink);
   }
 
-  clickLogoLink(){
-      let newLink = ['/home'];
-      this.router.navigate( newLink );
+  clickLogoLink() {
+    let newLink = ['/home'];
+    this.router.navigate(newLink);
   }
 
 }

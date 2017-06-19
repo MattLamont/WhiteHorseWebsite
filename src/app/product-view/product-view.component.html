@@ -4,92 +4,26 @@
       <div class="carousel  slide product-slide carousel-fade" id="product-carousel">
         <div class="carousel-inner no-padding width-100">
           <div class="item active">
-            <a class="" href="assets/img/products/product-01.jpg" data-lightbox="example-set" data-title="Product name or description."><img alt="carousel image" src="assets/img/products/product-01.jpg" title=""></a>
-          </div>
-          <div class="item">
-            <a class="" data-lightbox="example-set" data-title="Product name or description." href="assets/img/products/product-02.jpg"><img alt="carousel image" src="assets/img/products/product-02.jpg" title=""></a>
-          </div>
-          <div class="item">
-            <a class="" data-lightbox="example-set" data-title="Product name or description." href="assets/img/products/product-03.jpg"><img alt="carousel image" src="assets/img/products/product-03.jpg" title=""></a>
+            <a class="" href="{{listing.big_image_url}} || assets/img/products/product-01.jpg" data-lightbox="example-set" data-title="Product name or description."><img alt="carousel image" src="{{listing.big_image_url}} || assets/img/products/product-01.jpg" title=""></a>
+            <!--<a class="" href="assets/img/products/product-01.jpg" data-lightbox="example-set" data-title="Product name or description."><img alt="carousel image" src="assets/img/products/product-01.jpg" title=""></a> -->
           </div>
         </div>
-
-        <ol class="carousel-indicators">
-          <li class="active" data-slide-to="0" data-target="#product-carousel"> <img alt="" src="assets/img/products/product-01.jpg" class="img-thumbnail"> </li>
-          <li class="" data-slide-to="1" data-target="#product-carousel"> <img alt="" src="assets/img/products/product-02.jpg" class="img-thumbnail"> </li>
-          <li class="" data-slide-to="2" data-target="#product-carousel"> <img alt="" src="assets/img/products/product-03.jpg" class="img-thumbnail"> </li>
-        </ol>
 
       </div>
     </div>
     <div class="clearfix visible-xs visible-sm"></div>
     <div class="col-md-5">
       <!-- PRODUCT TITLE -->
-      <h3 class="pull-left width-100 mt-60">Product name <br><span class="text-muted small">code: zcs153299</span>
+      <h3 class="pull-left width-100 mt-60">{{listing.name}} <br><span class="text-muted small">code: {{listing.blid}}</span>
             </h3>
       <!-- / PRODUCT TITLE -->
 
-      <!-- RATING -->
-      <div class="width-100 pull-left mt-15">
-        <ul class="product-review-value pull-left mr-15">
-          <li><span class="glyphicon glyphicon-star"></span></li>
-          <li><span class="glyphicon glyphicon-star"></span></li>
-          <li><span class="glyphicon glyphicon-star"></span></li>
-          <li><span class="glyphicon glyphicon-star"></span></li>
-          <li><span class="glyphicon glyphicon-star-empty unactive"></span></li>
-        </ul>
-        <a class="small" href="#">(12 reviews)</a>
-      </div>
-      <!-- / RATING -->
 
       <div class="product-buy">
-        <span class="h2 product-price">$120.00</span>
-
-        <fieldset class="width-100 pull-left mb-30">
-          <legend>Product options</legend>
-          <div class="form-group">
-            <div class="width-100 pull-left">
-              <div class="custom-radio radio-primary pl-0">
-                <input id="radio-96" type="radio" name="delivery">
-                <label for="radio-96">
-                                    bottle 5ml
-                                </label>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <div class="width-100 pull-left">
-              <div class="custom-radio radio-primary pl-0">
-                <input id="radio-95" type="radio" name="delivery">
-                <label for="radio-95">
-                                    bottle 25ml
-                                </label>
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="width-100 pull-left">
-              <div class="custom-radio radio-primary pl-0">
-                <input id="radio-94" type="radio" name="delivery" checked>
-                <label for="radio-94">
-                                    bottle 50ml
-                                </label>
-              </div>
-            </div>
-          </div>
-          <button class="btn btn-default mt-30" type="submit">Buy now</button>
-        </fieldset>
-
+        <span class="h2 product-price">{{listing.price | currency:"USD":2}}</span>
       </div>
       <!-- SOCIAL SECTION -->
       <div class="width-100">
-        <ul>
-          <li class="small"> Dostępny!</li>
-          <li class="small"> Wysyłamy z magazynu w 24h</li>
-          <li class="small"> Dostawa od 0,-</li>
-          <li class="small"> Gdzie kupić </li>
-        </ul>
 
         <ul class="social-network social-circle">
           <li><a href="#" class="icoRss" title="Rss"><i class="ti-rss-alt"></i></a></li>
@@ -107,158 +41,12 @@
         <div class="col-md-7 product-info pl-30 pr-45">
           <ul id="myTab" class="nav nav-tabs nav_tabs mb-30">
             <li class="active"><a href="#service-one" data-toggle="tab">DESCRIPTION</a></li>
-            <li><a href="#service-two" data-toggle="tab">REVIEWS</a></li>
           </ul>
 
           <div id="myTabContent" class="tab-content">
             <div class="tab-pane fade in active" id="service-one">
               <div class="width-100 text-left section-small-padding">
-                <h3 class="">Ut enim ad minim veniam</h3>
-                <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, </p>
-                <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-                  aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet,
-                  consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, </p><br><br>
-
-                <h4 class="">Ut enim ad minim veniam</h4>
-                <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
-                  ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-              </div>
-            </div>
-
-            <div class="tab-pane fade" id="service-two">
-              <div class="width-100 section-small-padding">
-                <div class="product-review">
-                  <div class="panel panel-default product-review-single">
-                    <div class="panel-heading">
-                      <h3 class="panel-title">Review Title</h3>
-                    </div>
-
-                    <div class="panel-body">
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-                      <span class="product-review-by">by: Thomas Examle | 22.11.2016</span>
-                      <span class="pull-right product-review-value">
-                                        <span>5</span> /
-                      <span> 5 stars </span>
-                      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                      </span>
-                    </div>
-                  </div>
-
-                  <div class="panel panel-default product-review-single">
-                    <div class="panel-heading">
-                      <h3 class="panel-title">Review Title</h3>
-                    </div>
-
-                    <div class="panel-body">
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-                      <span class="product-review-by">by: Thomas Examle | 22.11.2016</span>
-                      <span class="pull-right product-review-value">
-                                        <span>5</span> /
-                      <span> 5 stars </span>
-                      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                      </span>
-                    </div>
-                  </div>
-
-                  <div class="panel panel-default product-review-single">
-                    <div class="panel-heading">
-                      <h3 class="panel-title">Review Title</h3>
-                    </div>
-
-                    <div class="panel-body">
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-                      <span class="product-review-by">by: Thomas Examle | 22.11.2016</span>
-                      <span class="pull-right product-review-value">
-                                        <span>5</span> /
-                      <span> 5 stars </span>
-                      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                      </span>
-                    </div>
-                  </div>
-
-                  <div class="panel panel-default product-review-single">
-                    <div class="panel-heading">
-                      <h3 class="panel-title">Review Title</h3>
-                    </div>
-
-                    <div class="panel-body">
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-                      <span class="product-review-by">by: Thomas Examle | 22.11.2016</span>
-                      <span class="pull-right product-review-value">
-                                        <span>5</span> /
-                      <span> 5 stars </span>
-                      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="width-100">
-                <div class="product-review-add">
-                  <h4 class="mb-30">Add new</h4>
-                  <form class="mb-30">
-                    <div class="form-group pull-left">
-                      <div class="custom-radio radio-primary pull-left no-padding">
-                        <input id="inlineRadio1" value="option1" name="radioInline" checked="" type="radio">
-                        <label for="inlineRadio1"> 1 </label>
-                      </div>
-
-                      <div class="custom-radio radio-primary pull-left">
-                        <input id="inlineRadio2" value="option1" name="radioInline" checked="" type="radio">
-                        <label for="inlineRadio2"> 2 </label>
-                      </div>
-
-                      <div class="custom-radio radio-primary pull-left">
-                        <input id="inlineRadio3" value="option1" name="radioInline" checked="" type="radio">
-                        <label for="inlineRadio3"> 3 </label>
-                      </div>
-
-                      <div class="custom-radio radio-primary pull-left">
-                        <input id="inlineRadio4" value="option1" name="radioInline" checked="" type="radio">
-                        <label for="inlineRadio4"> 4 </label>
-                      </div>
-
-                      <div class="custom-radio radio-primary pull-left">
-                        <input id="inlineRadio5" value="option1" name="radioInline" checked="" type="radio">
-                        <label for="inlineRadio5"> 5 </label>
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <input type="text" class="form-control" id="review-title" name="review-title" placeholder="Title" required>
-                    </div>
-
-                    <div class="form-group">
-                      <textarea class="form-control" id="review-message" placeholder="Your review" maxlength="140" rows="7"></textarea>
-                    </div>
-
-                    <button type="button" name="submit" class="btn btn-primary pull-right">Add review</button>
-                  </form>
-                </div>
+                <p>{{listing.description}}</p>
               </div>
             </div>
           </div>
@@ -269,35 +57,25 @@
             <h5>Information</h5>
 
             <ul class="product-detail-list">
-              <li>
-                <span class="product-detail-list-label small">Rating</span>
-                <ul class="pull-right product-review-value">
-                  <li><span class="glyphicon glyphicon-star"></span></li>
-                  <li><span class="glyphicon glyphicon-star"></span></li>
-                  <li><span class="glyphicon glyphicon-star"></span></li>
-                  <li><span class="glyphicon glyphicon-star"></span></li>
-                  <li><span class="glyphicon glyphicon-star-empty unactive"></span></li>
-                </ul>
-              </li>
 
               <li>
                 <span class="product-detail-list-label small">Manufacturer</span>
-                <span class="product-detail-value pull-right small">Laurent</span>
+                <span class="product-detail-value pull-right small">{{listing.brand_name}}</span>
               </li>
 
               <li>
-                <span class="product-detail-list-label small">reference</span>
-                <span class="product-detail-value pull-right small">22355-05</span>
+                <span class="product-detail-list-label small">Reference</span>
+                <span class="product-detail-value pull-right small">{{listing.product_id}}</span>
               </li>
 
               <li>
                 <span class="product-detail-list-label small">In stock</span>
-                <span class="product-detail-value pull-right small">1400 items</span>
+                <span class="product-detail-value pull-right small">{{listing.qty_stockroom}}</span>
               </li>
 
               <li>
-                <span class="product-detail-list-label small">Delivery</span>
-                <span class="product-detail-value pull-right small">24h | From $6.00</span>
+                <span class="product-detail-list-label small">Discontinued</span>
+                <span class="product-detail-value pull-right small">{{listing.discontinued}}</span>
               </li>
             </ul>
           </div>
