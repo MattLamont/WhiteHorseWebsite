@@ -3,6 +3,8 @@ import { ActivatedRoute, Router} from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import {BindoApiService} from '../bindo-api.service';
 
+import {Listing} from '../models/Listing';
+
 @Component({
   selector: 'app-product-view',
   templateUrl: './product-view.component.html',
@@ -14,7 +16,7 @@ export class ProductViewComponent implements OnInit {
   private sub: any;
   private product_id: String;
 
-  private listing = {};
+  public listing: Listing;
 
   constructor(private route: ActivatedRoute, private router: Router,
               private bindoApiService: BindoApiService) {
