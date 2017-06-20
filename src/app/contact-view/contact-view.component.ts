@@ -12,4 +12,9 @@ export class ContactViewComponent implements OnInit {
   ngOnInit() {
   }
 
+  title: string = 'My first AGM project';
+  lat: number = 39.6158629;
+  lng: number = -105.0932672;
+  zoom: number = 14;
+
 }

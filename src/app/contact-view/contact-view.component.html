@@ -4,35 +4,23 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-12 mt-30 mb-30 width-100 pull-left">
-            <h3>Contact <span class="text-muted small smartphone-inline-fw">some text</span>
-                        </h3>
+            <h3>Contact</h3>
           </div>
           <div class="col-md-3">
             <div class="mb-60">
-              <h5>Contact data</h5>
               <address>
-                                <strong>Vega store</strong><br>
-                                1355 Market Street, Suite 900<br>
-                                San Francisco, CA 94103<br>
-                                (123) 456-7890
-                            </address>
+                <strong>White Horse Vapor Denver</strong><br>
+                        8601 W Cross Dr.<br>
+                        Denver, CO 80123<br>
+                        (303) 904-6932
+            </address>
             </div>
             <div class="mb-60">
-              <h5>Store 1</h5>
-              <address class="small text-muted">
-                                <strong>Vega store</strong><br>
-                                1355 Market Street, Suite 900<br>
-                                San Francisco, CA 94103<br>
-                                (123) 456-7890
-                            </address>
-            </div>
-            <div class="mb-60">
-              <h5>Store 2</h5>
-              <address class="small text-muted">
-                                <strong>Vega store</strong><br>
-                                1355 Market Street, Suite 900<br>
-                                San Francisco, CA 94103<br>
-                                (123) 456-7890
+              <address>
+                                <strong>Corporate Office</strong><br>
+                                1375 Mineral Spring Ave<br>
+                                North Providence, RI 02904<br>
+                                (401) 353-3244
                             </address>
             </div>
 
@@ -75,13 +63,25 @@
       </div>
     </div>
   </div>
+  <div class="col-md-12">
+    <div class="separate mb-60"></div>
+  </div>
   <div class="col-md-12 no-padding">
     <!-- GOOGLE MAP CONTAINER -->
     <div class="contact">
       <div class="google-maps">
-        <div id="map-canvas"></div>
+        <div id="map-canvas">
+          <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+            <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+          </agm-map>
+        </div>
       </div>
     </div>
     <!-- / GOOGLE MAP CONTAINER-->
   </div>
+  <!-- HORIZONTAL SEPARATE -->
+  <div class="col-md-12">
+    <div class="separate mt-60"></div>
+  </div>
+  <!-- / HORIZONTAL SEPARATE -->
 </div>

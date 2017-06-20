@@ -15,6 +15,8 @@ import { FooterComponent } from './footer/footer.component';
 import { AboutViewComponent } from './about-view/about-view.component';
 import { ContactViewComponent } from './contact-view/contact-view.component';
 
+import { AgmCoreModule } from '@agm/core';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +32,10 @@ import { ContactViewComponent } from './contact-view/contact-view.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    routing
+    routing,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAygK8MzLci1lhhWGjNaIk64xBYZD6mZdI'
+    })
   ],
   providers: [BindoApiService],
   bootstrap: [AppComponent]
