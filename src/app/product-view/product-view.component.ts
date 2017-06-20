@@ -3,7 +3,7 @@ import { ActivatedRoute, Router} from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import {BindoApiService} from '../bindo-api.service';
 
-import {Listing} from '../models/Listing';
+import {Listing} from '../models/listing';
 
 @Component({
   selector: 'app-product-view',
