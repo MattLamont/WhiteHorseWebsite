@@ -7,6 +7,7 @@ import { environment } from './environments/environment';
 // Enable production mode unless running locally
 if (!/localhost/.test(document.location.host)) {
   enableProdMode();
+  console.log( 'prod mode enabled' );
 }
 
 if (environment.production) {

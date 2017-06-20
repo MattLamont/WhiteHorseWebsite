@@ -18,7 +18,7 @@ export class BindoApiService {
 
   }
 
-  public getDepartments(){
+  public getDepartments() {
 
       return this.http
         .get( BINDO_API_URL + '/departments' )
@@ -28,7 +28,7 @@ export class BindoApiService {
         .catch( this.handleError );
   }
 
-  public getListings( params: String ){
+  public getListings( params: String ) {
       return this.http
         .get( BINDO_API_URL + '/listings' + params )
         .map( response => {
@@ -37,11 +37,11 @@ export class BindoApiService {
         .catch( this.handleError );
   }
 
-  public getCustomers(){
+  public getCustomers() {
 
   }
 
-  private handleError( error: Response | any ){
+  private handleError( error: Response | any ) {
       console.error( error );
       return Observable.throw( error );
   }
