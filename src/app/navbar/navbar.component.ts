@@ -10,7 +10,7 @@ import {BindoApiService} from '../bindo-api.service';
 })
 export class NavbarComponent implements OnInit {
 
-  private departments = {};
+  public departments = {};
 
   /*
     private departments = [
@@ -41,22 +41,22 @@ export class NavbarComponent implements OnInit {
 
 
   clickLink( name , id ) {
-    let newLink = ['/department', name , id];
+    const newLink = ['/department', name , id];
     this.router.navigate(newLink);
   }
 
   clickAboutLink() {
-    let newLink = ['/about'];
+    const newLink = ['/about'];
     this.router.navigate(newLink);
   }
 
   clickContactLink() {
-    let newLink = ['/contact'];
+    const newLink = ['/contact'];
     this.router.navigate(newLink);
   }
 
   clickLogoLink() {
-    let newLink = ['/home'];
+    const newLink = ['/home'];
     this.router.navigate(newLink);
   }
 

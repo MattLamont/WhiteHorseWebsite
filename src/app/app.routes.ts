@@ -1,4 +1,4 @@
-import { ModuleWithProviders }  from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomepageViewComponent } from './homepage-view/homepage-view.component';
 import { ProductViewComponent } from './product-view/product-view.component';

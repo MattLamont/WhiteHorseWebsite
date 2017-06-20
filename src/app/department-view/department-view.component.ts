@@ -12,10 +12,10 @@ import {BindoApiService} from '../bindo-api.service';
 export class DepartmentViewComponent implements OnInit {
 
   private sub: any;
-  private department: String;
+  public department: String;
   private department_id: String;
 
-  private listings = {};
+  public listings = {};
 
   constructor(private route: ActivatedRoute, private router: Router,
               private bindoApiService: BindoApiService) {
@@ -27,7 +27,7 @@ export class DepartmentViewComponent implements OnInit {
       this.department = params['name'];
       this.department_id = params['id'];
 
-      var url_params = "/?department_ids[]=" + this.department_id;
+      const url_params = '/?department_ids[]=' + this.department_id;
 
       this.bindoApiService
         .getListings( url_params )
@@ -40,8 +40,8 @@ export class DepartmentViewComponent implements OnInit {
 
   }
 
-  onProductClick( blid: String){
-      let newLink = ['/product' , blid ];
+  onProductClick( blid: String) {
+      const newLink = ['/product' , blid ];
       this.router.navigate( newLink );
   }
 
