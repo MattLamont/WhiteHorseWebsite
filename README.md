@@ -4,7 +4,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `npm run server` to run the node.js server and the Angular app. Navigate to `http://localhost:3032/`.
+
+## Angular App Development server
+
+Run `ng serve` for a dev server for just the Angular app. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
@@ -14,6 +18,14 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
+## Build Production
+
+Run `ng build -prod` to build the project. This will perform all checks and optimizations on the Angular app.
+
+## Lint Javascript Code
+
+Run `ng lint` to lint the javascript in the Angular App.
+
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
@@ -22,6 +34,13 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 Before running the tests make sure you are serving the app via `ng serve`.
+
+## Deploy to Heroku Production Server
+Run `ng lint` first to check for common errors.
+Run `ng build -prod` on your local machine to ensure that a production build will proceed.
+Run `git push heroku master` to push the project to Heroku and deploy.
+    or
+Run `git push heroku [your_branch]:master` to push another repo branch to Heroku and deploy.
 
 ## Further help
 
