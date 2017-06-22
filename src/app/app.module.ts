@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { environment } from 'environments/environment';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -16,6 +17,11 @@ import { AboutViewComponent } from './about-view/about-view.component';
 import { ContactViewComponent } from './contact-view/contact-view.component';
 
 import { AgmCoreModule } from '@agm/core';
+
+import { AlertModule } from 'ngx-bootstrap';
+import { PaginationModule } from 'ngx-bootstrap';
+
+const GOOGLE_MAPS_API_KEY = environment.googleMapsApiKey
 
 @NgModule({
   declarations: [
@@ -34,8 +40,10 @@ import { AgmCoreModule } from '@agm/core';
     HttpModule,
     routing,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyAygK8MzLci1lhhWGjNaIk64xBYZD6mZdI'
-    })
+      apiKey: GOOGLE_MAPS_API_KEY
+    }),
+    AlertModule.forRoot(),
+    PaginationModule.forRoot()
   ],
   providers: [BindoApiService],
   bootstrap: [AppComponent]
