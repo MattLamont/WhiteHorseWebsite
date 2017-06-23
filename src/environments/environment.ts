@@ -6,5 +6,6 @@
 export const environment = {
   production: false,
 
-  bindoApiUrl: 'http://localhost:3032'
+  bindoApiUrl: 'http://localhost:3032',
+  googleMapsApiKey: 'AIzaSyAygK8MzLci1lhhWGjNaIk64xBYZD6mZdI'
 };

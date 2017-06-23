@@ -1,130 +1,44 @@
 <!-- HOME SLIDER -->
-<div class="home col-md-12 no-padding">
-  <div class="home-slider home-slider-half-page">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide home-slider-centered" style="background-image:url(assets/img/slider/slide-01.jpg)">
-        <h1 class="light wow fadeInDown text-center"><span class="small dark-with-shadow">AMBER</span><br> <span class="light-with-shadow">bottle set</span></h1>
-        <a class="btn btn-primary wow fadeInUp mt-30">browse <span class="ti-arrow-right light"></span></a>
-      </div>
+<carousel>
+  <slide>
+    <img class="img-responsive carousel-image" src="assets/img/slider/slide-01.jpg" alt="First slide">
+  </slide>
+  <slide>
+    <img class="img-responsive carousel-image" src="assets/img/slider/slide-02.jpg" alt="Second slide">
+  </slide>
+  <slide>
+    <img class="img-responsive carousel-image" src="assets/img/slider/slide-03.jpg" alt="Third slide">
+  </slide>
+</carousel>
 
-      <div class="swiper-slide home-slider-centered" style="background-image:url(assets/img/slider/slide-01.jpg)">
-        <h1 class="light wow fadeInDown text-center"><span class="small dark-with-shadow">AMBER</span><br> <span class="light-with-shadow">bottle set</span></h1>
-        <a class="btn btn-primary wow fadeInUp mt-30">browse <span class="ti-arrow-right light"></span></a>
-      </div>
-
-    </div>
-    <!-- Add Pagination -->
-    <div class="home-slider-pagination"></div>
-    <span class="ti-angle-left home-slider-prev"></span>
-    <span class="ti-angle-right home-slider-next"></span>
-  </div>
-</div>
-<!-- / HOME SLIDER -->
 
 <div class="col-md-12">
   <!-- PRODUCTS ROW -->
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12 mt-30 mb-30 width-100 pull-left">
-        <h3>new products <span class="text-muted small smartphone-inline-fw">default listing</span>
-                        <a href="#" class="x-small pull-right mt-10">see more <span class="ti-arrow-right"></span></a>
-                    </h3>
+        <h3>New Products</h3>
       </div>
     </div>
     <div class="row">
       <!-- PRODUCT SINGLE -->
-      <div class="col-md-3 col-sm-6">
+      <div class="col-md-3 col-sm-6" *ngFor="let listing of new_listings">
         <div class="product-item">
-          <div class="product-item-thumbnail text-center mb-15">
-            <a class="product-item-thumbnail-link" href="#"></a>
+          <div class="product-item-thumbnail text-center mb-15" (click)="onProductClick( listing.blid )">
+            <a class="product-item-thumbnail-link"></a>
             <span class="product-item-thumbnail-label">new</span>
-            <img src="assets/img/products/product-01.jpg" class="img-responsive" alt="product image">
+            <img src="{{listing.big_image_url}} || assets/img/products/product-01.jpg" class="img-responsive center-cropped" alt="product image">
             <div class="product-item-thumbnail-overlay">
-              <a href="#" class="btn btn-default pulse"><span class="ti-heart mr-0"></span></a>
-              <a href="#" class="btn btn-primary">add to cart</a>
+              <a class="btn btn-primary">View Product</a>
             </div>
           </div>
           <div class="row">
             <div class="col-xs-6">
-              <a class="h5" href="#">Product name</a>
+              <a class="h5" (click)="onProductClick( listing.blid )">{{listing.name}}</a>
             </div>
 
             <div class="col-xs-6 text-right">
-              <del class="h5 text-muted product-item-price-old">$99.00</del>
-              <span class="h5 product-item-price">$49.00</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- / PRODUCT SINGLE-->
-      <!-- PRODUCT SINGLE -->
-      <div class="col-md-3 col-sm-6">
-        <div class="product-item">
-          <div class="product-item-thumbnail text-center mb-15">
-            <a class="product-item-thumbnail-link" href="#"></a>
-            <img src="assets/img/products/product-01.jpg" class="img-responsive" alt="product image">
-            <div class="product-item-thumbnail-overlay">
-              <a href="#" class="btn btn-default pulse"><span class="ti-heart mr-0"></span></a>
-              <a href="#" class="btn btn-primary">add to cart</a>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-xs-6">
-              <a class="h5" href="#">Product name</a>
-            </div>
-
-            <div class="col-xs-6 text-right">
-              <del class="h5 text-muted product-item-price-old">$99.00</del>
-              <span class="h5 product-item-price">$49.00</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- / PRODUCT SINGLE-->
-      <!-- PRODUCT SINGLE -->
-      <div class="col-md-3 col-sm-6">
-        <div class="product-item">
-          <div class="product-item-thumbnail text-center mb-15">
-            <a class="product-item-thumbnail-link" href="#"></a>
-            <span class="product-item-thumbnail-label">new</span>
-            <img src="assets/img/products/product-01.jpg" class="img-responsive" alt="product image">
-            <div class="product-item-thumbnail-overlay">
-              <a href="#" class="btn btn-default pulse"><span class="ti-heart mr-0"></span></a>
-              <a href="#" class="btn btn-primary">add to cart</a>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-xs-6">
-              <a class="h5" href="#">Product name</a>
-            </div>
-
-            <div class="col-xs-6 text-right">
-              <del class="h5 text-muted product-item-price-old">$99.00</del>
-              <span class="h5 product-item-price">$49.00</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- / PRODUCT SINGLE-->
-      <!-- PRODUCT SINGLE -->
-      <div class="col-md-3 col-sm-6">
-        <div class="product-item">
-          <div class="product-item-thumbnail text-center mb-15">
-            <a class="product-item-thumbnail-link" href="#"></a>
-            <img src="assets/img/products/product-01.jpg" class="img-responsive" alt="product image">
-            <div class="product-item-thumbnail-overlay">
-              <a href="#" class="btn btn-default pulse"><span class="ti-heart mr-0"></span></a>
-              <a href="#" class="btn btn-primary">add to cart</a>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-xs-6">
-              <a class="h5" href="#">Product name</a>
-            </div>
-
-            <div class="col-xs-6 text-right">
-              <del class="h5 text-muted product-item-price-old">$99.00</del>
-              <span class="h5 product-item-price">$49.00</span>
+              <span class="h5 product-item-price">{{listing.price | currency:"USD":2}}</span>
             </div>
           </div>
         </div>
@@ -134,7 +48,7 @@
   </div>
   <!-- / PRODUCTS ROW -->
   <!-- INFO ROW -->
-  <div class="container-fluid mt-60 mb-30">
+  <div class="container-fluid mt-30 mb-30">
     <div class="row">
       <!-- HORIZONTAL SEPARATE -->
       <div class="col-md-12">
@@ -146,35 +60,35 @@
       <!-- SINGLE INFO BOX -->
       <div class="col-md-3 info-box">
         <span class="ti-mobile info-box-icon mt-10 mr-10"></span>
-        <h5 class="info-box-text">Service hotline<br>
-                        <span class="text-muted">+48 123 444 888</span>
+        <h5 class="info-box-text">Call Inquiries<br>
+                        <span class="text-muted">(303) 904-6932</span>
                     </h5>
       </div>
       <!-- SINGLE INFO BOX -->
 
       <!-- SINGLE INFO BOX -->
       <div class="col-md-3 info-box">
-        <span class="ti-mobile info-box-icon mt-10 mr-10"></span>
-        <h5 class="info-box-text">Secure<br>
-                        <span class="text-muted">Payment</span>
+        <span class="ti-user info-box-icon mt-10 mr-10"></span>
+        <h5 class="info-box-text">Experienced<br>
+                        <span class="text-muted">Professionals</span>
                     </h5>
       </div>
       <!-- SINGLE INFO BOX -->
 
       <!-- SINGLE INFO BOX -->
       <div class="col-md-3 info-box">
-        <span class="ti-mobile info-box-icon mt-10 mr-10"></span>
-        <h5 class="info-box-text">Free<br>
-                        <span class="text-muted">return</span>
+        <span class="ti-shopping-cart info-box-icon mt-10 mr-10"></span>
+        <h5 class="info-box-text">Great<br>
+                        <span class="text-muted">Products</span>
                     </h5>
       </div>
       <!-- SINGLE INFO BOX -->
 
       <!-- SINGLE INFO BOX -->
       <div class="col-md-3 info-box">
-        <span class="ti-mobile info-box-icon mt-10 mr-10"></span>
-        <h5 class="info-box-text">Free Shipping<br>
-                        <span class="text-muted">from $10</span>
+        <span class="ti-comments info-box-icon mt-10 mr-10"></span>
+        <h5 class="info-box-text">Attentive<br>
+                        <span class="text-muted">Customer Service</span>
                     </h5>
       </div>
       <!-- SINGLE INFO BOX -->
@@ -230,81 +144,27 @@
   <div class="container-fluid mt-30">
     <div class="row">
       <div class="col-md-12 mb-30 pull-left">
-        <h3>featured products <span class="text-muted small smartphone-inline-fw">default listing</span>
-                        <a href="#" class="x-small pull-right mt-10">see more <span class="ti-arrow-right"></span></a>
-                    </h3>
+        <h3>Featured Products</h3>
       </div>
     </div>
     <div class="row">
       <!-- PRODUCT SINGLE -->
-      <div class="col-md-4 col-sm-6">
+      <div class="col-md-3 col-sm-6" *ngFor="let listing of featured_listings" (click)="onProductClick( listing.blid )">
         <div class="product-item">
           <div class="product-item-thumbnail text-center mb-15">
-            <a class="product-item-thumbnail-link" href="#"></a>
-            <span class="product-item-thumbnail-label">new</span>
-            <img src="assets/img/products/product-01.jpg" class="img-responsive" alt="product image">
+            <a class="product-item-thumbnail-link"></a>
+            <img src="{{listing.big_image_url}} || assets/img/products/product-01.jpg" class="img-responsive center-cropped" alt="product image">
             <div class="product-item-thumbnail-overlay">
-              <a href="#" class="btn btn-default pulse"><span class="ti-heart mr-0"></span></a>
-              <a href="#" class="btn btn-primary">add to cart</a>
+              <a class="btn btn-primary">View Product</a>
             </div>
           </div>
           <div class="row">
             <div class="col-xs-6">
-              <a class="h5" href="#">Product name</a>
+              <a class="h5" (click)="onProductClick( listing.blid )">{{listing.name}}</a>
             </div>
 
             <div class="col-xs-6 text-right">
-              <del class="h5 text-muted product-item-price-old">$99.00</del>
-              <span class="h5 product-item-price">$49.00</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- / PRODUCT SINGLE-->
-      <!-- PRODUCT SINGLE -->
-      <div class="col-md-4 col-sm-6">
-        <div class="product-item">
-          <div class="product-item-thumbnail text-center mb-15">
-            <a class="product-item-thumbnail-link" href="#"></a>
-            <img src="assets/img/products/product-01.jpg" class="img-responsive" alt="product image">
-            <div class="product-item-thumbnail-overlay">
-              <a href="#" class="btn btn-default pulse"><span class="ti-heart mr-0"></span></a>
-              <a href="#" class="btn btn-primary">add to cart</a>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-xs-6">
-              <a class="h5" href="#">Product name</a>
-            </div>
-
-            <div class="col-xs-6 text-right">
-              <del class="h5 text-muted product-item-price-old">$99.00</del>
-              <span class="h5 product-item-price">$49.00</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- / PRODUCT SINGLE-->
-      <!-- PRODUCT SINGLE -->
-      <div class="col-md-4 col-sm-6">
-        <div class="product-item">
-          <div class="product-item-thumbnail text-center mb-15">
-            <a class="product-item-thumbnail-link" href="#"></a>
-            <span class="product-item-thumbnail-label">new</span>
-            <img src="assets/img/products/product-01.jpg" class="img-responsive" alt="product image">
-            <div class="product-item-thumbnail-overlay">
-              <a href="#" class="btn btn-default pulse"><span class="ti-heart mr-0"></span></a>
-              <a href="#" class="btn btn-primary">add to cart</a>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-xs-6">
-              <a class="h5" href="#">Product name</a>
-            </div>
-
-            <div class="col-xs-6 text-right">
-              <del class="h5 text-muted product-item-price-old">$99.00</del>
-              <span class="h5 product-item-price">$49.00</span>
+              <span class="h5 product-item-price">{{listing.price | currency:"USD":2}}</span>
             </div>
           </div>
         </div>
@@ -314,431 +174,42 @@
   </div>
   <!-- / PRODUCTS ROW -->
 
-  <!-- PROMO BOX LARGE -->
+  <!-- HOME SPECIAL -->
   <div class="container-fluid mt-60">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-6">
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-12 mb-30 hoverable" (click)="onDepartmentClick( 'E-Liquid' , 168148 )">
             <div class="promo-box">
-              <img src="assets/img/products/composition-3.jpg" class="img-responsive width-100" alt="product image">
+              <img src="assets/img/products/composition-3.jpg" class="img-responsive" alt="product image">
               <div class="promo-box-content">
-                <div class="text-center mr-30 width-50">
-                  <h3 class="mb-30 light hidden-xs">AMBER BOTTLE SET<br><span class="small">now are here</span></h3>
-                  <a href="#" class="btn btn-primary">details <span class="ti-angle-right"></span></a>
+                <div class="text-center mr-30">
+                  <h3 class="mb-15 light">Juice</h3>
+                  <a class="btn btn-primary" (click)="onDepartmentClick( 'E-Liquid' , 168148 )">View <span class="ti-angle-right"></span></a>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-  <!-- / PROMO BOX LARGE -->
 
-  <!-- PRODUCTS TAB -->
-  <div class="container-fluid mt-60 mb-60">
-    <div class="row">
-      <div class="col-md-12">
-        <!-- TABS -->
-        <ul class="nav nav-tabs nav-center mb-30" role="tablist">
-          <li class="active" data-wow-delay="0.6s"><a href="#featured" data-toggle="tab">featured</a></li>
-          <li class="" data-wow-delay="0.4s"><a href="#best" data-toggle="tab">bestsellers</a></li>
-          <li class="" data-wow-delay="0.2s"><a href="#new" data-toggle="tab">new</a></li>
-        </ul>
-
-        <div class="tab-content">
-          <!-- TAB PANEL ITEM-->
-          <div role="tabpanel" class="tab-pane fade in active" id="featured">
-            <div class="row">
-              <!-- PRODUCT SINGLE -->
-              <div class="col-md-3 col-sm-6">
-                <div class="product-item">
-                  <div class="product-item-thumbnail text-center mb-15">
-                    <a class="product-item-thumbnail-link" href="#"></a>
-                    <span class="product-item-thumbnail-label">new</span>
-                    <img src="assets/img/products/product-01.jpg" class="img-responsive" alt="product image">
-                    <div class="product-item-thumbnail-overlay">
-                      <a href="#" class="btn btn-default pulse"><span class="ti-heart mr-0"></span></a>
-                      <a href="#" class="btn btn-primary">add to cart</a>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-xs-6">
-                      <a class="h5" href="#">Product name</a>
-                    </div>
-
-                    <div class="col-xs-6 text-right">
-                      <del class="h5 text-muted product-item-price-old">$99.00</del>
-                      <span class="h5 product-item-price">$49.00</span>
-                    </div>
-                  </div>
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-md-12 mb-30 hoverable" (click)="onDepartmentClick( 'Hardware' , 168145 )">
+            <div class="promo-box">
+              <img src="assets/img/products/composition-4.png" class="img-responsive" alt="product image">
+              <div class="promo-box-content">
+                <div class="text-center mr-30">
+                  <h3 class="mb-15 light">Hardware</h3>
+                  <a class="btn btn-primary" (click)="onDepartmentClick( 'E-Liquid' , 168148 )">View <span class="ti-angle-right"></span></a>
                 </div>
               </div>
-              <!-- / PRODUCT SINGLE-->
-              <!-- PRODUCT SINGLE -->
-              <div class="col-md-3 col-sm-6">
-                <div class="product-item">
-                  <div class="product-item-thumbnail text-center mb-15">
-                    <a class="product-item-thumbnail-link" href="#"></a>
-                    <span class="product-item-thumbnail-label">new</span>
-                    <img src="assets/img/products/product-01.jpg" class="img-responsive" alt="product image">
-                    <div class="product-item-thumbnail-overlay">
-                      <a href="#" class="btn btn-default pulse"><span class="ti-heart mr-0"></span></a>
-                      <a href="#" class="btn btn-primary">add to cart</a>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-xs-6">
-                      <a class="h5" href="#">Product name</a>
-                    </div>
-
-                    <div class="col-xs-6 text-right">
-                      <del class="h5 text-muted product-item-price-old">$99.00</del>
-                      <span class="h5 product-item-price">$49.00</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- / PRODUCT SINGLE-->
-              <!-- PRODUCT SINGLE -->
-              <div class="col-md-3 col-sm-6">
-                <div class="product-item">
-                  <div class="product-item-thumbnail text-center mb-15">
-                    <a class="product-item-thumbnail-link" href="#"></a>
-                    <span class="product-item-thumbnail-label">new</span>
-                    <img src="assets/img/products/product-01.jpg" class="img-responsive" alt="product image">
-                    <div class="product-item-thumbnail-overlay">
-                      <a href="#" class="btn btn-default pulse"><span class="ti-heart mr-0"></span></a>
-                      <a href="#" class="btn btn-primary">add to cart</a>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-xs-6">
-                      <a class="h5" href="#">Product name</a>
-                    </div>
-
-                    <div class="col-xs-6 text-right">
-                      <del class="h5 text-muted product-item-price-old">$99.00</del>
-                      <span class="h5 product-item-price">$49.00</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- / PRODUCT SINGLE-->
-              <!-- PRODUCT SINGLE -->
-              <div class="col-md-3 col-sm-6">
-                <div class="product-item">
-                  <div class="product-item-thumbnail text-center mb-15">
-                    <a class="product-item-thumbnail-link" href="#"></a>
-                    <span class="product-item-thumbnail-label">new</span>
-                    <img src="assets/img/products/product-01.jpg" class="img-responsive" alt="product image">
-                    <div class="product-item-thumbnail-overlay">
-                      <a href="#" class="btn btn-default pulse"><span class="ti-heart mr-0"></span></a>
-                      <a href="#" class="btn btn-primary">add to cart</a>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-xs-6">
-                      <a class="h5" href="#">Product name</a>
-                    </div>
-
-                    <div class="col-xs-6 text-right">
-                      <del class="h5 text-muted product-item-price-old">$99.00</del>
-                      <span class="h5 product-item-price">$49.00</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- / PRODUCT SINGLE-->
             </div>
           </div>
-          <!--/ TAB PANEL ITEM -->
-
-          <!-- TAB PANEL ITEM-->
-          <div role="tabpanel" class="tab-pane fade in" id="best">
-            <div class="row">
-              <!-- PRODUCT SINGLE -->
-              <div class="col-md-3 col-sm-6">
-                <div class="product-item">
-                  <div class="product-item-thumbnail text-center mb-15">
-                    <a class="product-item-thumbnail-link" href="#"></a>
-                    <span class="product-item-thumbnail-label">new</span>
-                    <img src="assets/img/products/product-02.jpg" class="img-responsive" alt="product image">
-                    <div class="product-item-thumbnail-overlay">
-                      <a href="#" class="btn btn-default pulse"><span class="ti-heart mr-0"></span></a>
-                      <a href="#" class="btn btn-primary">add to cart</a>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-xs-6">
-                      <a class="h5" href="#">Product name</a>
-                    </div>
-
-                    <div class="col-xs-6 text-right">
-                      <del class="h5 text-muted product-item-price-old">$99.00</del>
-                      <span class="h5 product-item-price">$49.00</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- / PRODUCT SINGLE-->
-              <!-- PRODUCT SINGLE -->
-              <div class="col-md-3 col-sm-6">
-                <div class="product-item">
-                  <div class="product-item-thumbnail text-center mb-15">
-                    <a class="product-item-thumbnail-link" href="#"></a>
-                    <span class="product-item-thumbnail-label">new</span>
-                    <img src="assets/img/products/product-02.jpg" class="img-responsive" alt="product image">
-                    <div class="product-item-thumbnail-overlay">
-                      <a href="#" class="btn btn-default pulse"><span class="ti-heart mr-0"></span></a>
-                      <a href="#" class="btn btn-primary">add to cart</a>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-xs-6">
-                      <a class="h5" href="#">Product name</a>
-                    </div>
-
-                    <div class="col-xs-6 text-right">
-                      <del class="h5 text-muted product-item-price-old">$99.00</del>
-                      <span class="h5 product-item-price">$49.00</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- / PRODUCT SINGLE-->
-              <!-- PRODUCT SINGLE -->
-              <div class="col-md-3 col-sm-6">
-                <div class="product-item">
-                  <div class="product-item-thumbnail text-center mb-15">
-                    <a class="product-item-thumbnail-link" href="#"></a>
-                    <span class="product-item-thumbnail-label">new</span>
-                    <img src="assets/img/products/product-02.jpg" class="img-responsive" alt="product image">
-                    <div class="product-item-thumbnail-overlay">
-                      <a href="#" class="btn btn-default pulse"><span class="ti-heart mr-0"></span></a>
-                      <a href="#" class="btn btn-primary">add to cart</a>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-xs-6">
-                      <a class="h5" href="#">Product name</a>
-                    </div>
-
-                    <div class="col-xs-6 text-right">
-                      <del class="h5 text-muted product-item-price-old">$99.00</del>
-                      <span class="h5 product-item-price">$49.00</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- / PRODUCT SINGLE-->
-              <!-- PRODUCT SINGLE -->
-              <div class="col-md-3 col-sm-6">
-                <div class="product-item">
-                  <div class="product-item-thumbnail text-center mb-15">
-                    <a class="product-item-thumbnail-link" href="#"></a>
-                    <span class="product-item-thumbnail-label">new</span>
-                    <img src="assets/img/products/product-02.jpg" class="img-responsive" alt="product image">
-                    <div class="product-item-thumbnail-overlay">
-                      <a href="#" class="btn btn-default pulse"><span class="ti-heart mr-0"></span></a>
-                      <a href="#" class="btn btn-primary">add to cart</a>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-xs-6">
-                      <a class="h5" href="#">Product name</a>
-                    </div>
-
-                    <div class="col-xs-6 text-right">
-                      <del class="h5 text-muted product-item-price-old">$99.00</del>
-                      <span class="h5 product-item-price">$49.00</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- / PRODUCT SINGLE-->
-            </div>
-          </div>
-          <!--/ TAB PANEL ITEM -->
-
-          <!-- TAB PANEL ITEM-->
-          <div role="tabpanel" class="tab-pane fade in" id="new">
-            <div class="row">
-              <!-- PRODUCT SINGLE -->
-              <div class="col-md-3 col-sm-6">
-                <div class="product-item">
-                  <div class="product-item-thumbnail text-center mb-15">
-                    <a class="product-item-thumbnail-link" href="#"></a>
-                    <span class="product-item-thumbnail-label">new</span>
-                    <img src="assets/img/products/product-03.jpg" class="img-responsive" alt="product image">
-                    <div class="product-item-thumbnail-overlay">
-                      <a href="#" class="btn btn-default pulse"><span class="ti-heart mr-0"></span></a>
-                      <a href="#" class="btn btn-primary">add to cart</a>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-xs-6">
-                      <a class="h5" href="#">Product name</a>
-                    </div>
-
-                    <div class="col-xs-6 text-right">
-                      <del class="h5 text-muted product-item-price-old">$99.00</del>
-                      <span class="h5 product-item-price">$49.00</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- / PRODUCT SINGLE-->
-              <!-- PRODUCT SINGLE -->
-              <div class="col-md-3 col-sm-6">
-                <div class="product-item">
-                  <div class="product-item-thumbnail text-center mb-15">
-                    <a class="product-item-thumbnail-link" href="#"></a>
-                    <span class="product-item-thumbnail-label">new</span>
-                    <img src="assets/img/products/product-03.jpg" class="img-responsive" alt="product image">
-                    <div class="product-item-thumbnail-overlay">
-                      <a href="#" class="btn btn-default pulse"><span class="ti-heart mr-0"></span></a>
-                      <a href="#" class="btn btn-primary">add to cart</a>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-xs-6">
-                      <a class="h5" href="#">Product name</a>
-                    </div>
-
-                    <div class="col-xs-6 text-right">
-                      <del class="h5 text-muted product-item-price-old">$99.00</del>
-                      <span class="h5 product-item-price">$49.00</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- / PRODUCT SINGLE-->
-              <!-- PRODUCT SINGLE -->
-              <div class="col-md-3 col-sm-6">
-                <div class="product-item">
-                  <div class="product-item-thumbnail text-center mb-15">
-                    <a class="product-item-thumbnail-link" href="#"></a>
-                    <span class="product-item-thumbnail-label">new</span>
-                    <img src="assets/img/products/product-03.jpg" class="img-responsive" alt="product image">
-                    <div class="product-item-thumbnail-overlay">
-                      <a href="#" class="btn btn-default pulse"><span class="ti-heart mr-0"></span></a>
-                      <a href="#" class="btn btn-primary">add to cart</a>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-xs-6">
-                      <a class="h5" href="#">Product name</a>
-                    </div>
-
-                    <div class="col-xs-6 text-right">
-                      <del class="h5 text-muted product-item-price-old">$99.00</del>
-                      <span class="h5 product-item-price">$49.00</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- / PRODUCT SINGLE-->
-              <!-- PRODUCT SINGLE -->
-              <div class="col-md-3 col-sm-6">
-                <div class="product-item">
-                  <div class="product-item-thumbnail text-center mb-15">
-                    <a class="product-item-thumbnail-link" href="#"></a>
-                    <span class="product-item-thumbnail-label">new</span>
-                    <img src="assets/img/products/product-03.jpg" class="img-responsive" alt="product image">
-                    <div class="product-item-thumbnail-overlay">
-                      <a href="#" class="btn btn-default pulse"><span class="ti-heart mr-0"></span></a>
-                      <a href="#" class="btn btn-primary">add to cart</a>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-xs-6">
-                      <a class="h5" href="#">Product name</a>
-                    </div>
-
-                    <div class="col-xs-6 text-right">
-                      <del class="h5 text-muted product-item-price-old">$99.00</del>
-                      <span class="h5 product-item-price">$49.00</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- / PRODUCT SINGLE-->
-            </div>
-          </div>
-          <!--/ TAB PANEL ITEM -->
         </div>
-        <!-- / TABS -->
-
       </div>
-    </div>
-  </div>
-  <!-- PRODUCTS TAB -->
-  <!-- ARTICLE LIST -->
-
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-12 mb-30 pull-left">
-        <h3>latest post <span class="text-muted small smartphone-inline-fw">default listing</span>
-                        <a href="#" class="x-small pull-right mt-10">see more <span class="ti-arrow-right"></span></a>
-                    </h3>
-      </div>
-    </div>
-    <div class="row">
-
-      <!-- SINGLE POST ITEM  -->
-
-      <div class="col-md-4">
-        <a href="#">
-          <img src="assets/img/blog/cover-01.jpg" class="width-100" alt="cover image">
-          <h4 class="mt-30 mb-20">
-                        Excepteur sint occ aecat cup idatat non
-                        proident.<br>
-                        <span class="x-small text-muted">category: new products | 22.02.2017</span></h4>
-          <p> Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          </p>
-        </a>
-        <a class="btn btn-link pull-right text-right pr-0" href="#">read more <span class="ti-arrow-right"></span></a>
-      </div>
-
-      <!-- / SINGLE POST ITEM  -->
-      <!-- SINGLE POST ITEM  -->
-
-      <div class="col-md-4">
-        <a href="#">
-          <img src="assets/img/blog/cover-01.jpg" class="width-100" alt="cover image">
-          <h4 class="mt-30 mb-20">
-                        Excepteur sint occ aecat cup idatat non
-                        proident.<br>
-                        <span class="x-small text-muted">category: new products | 22.02.2017</span></h4>
-          <p> Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          </p>
-        </a>
-        <a class="btn btn-link pull-right text-right pr-0" href="#">read more <span class="ti-arrow-right"></span></a>
-      </div>
-
-      <!-- / SINGLE POST ITEM  -->
-      <!-- SINGLE POST ITEM  -->
-
-      <div class="col-md-4">
-        <a href="#">
-          <img src="assets/img/blog/cover-01.jpg" class="width-100" alt="cover image">
-          <h4 class="mt-30 mb-20">
-                        Excepteur sint occ aecat cup idatat non
-                        proident.<br>
-                        <span class="x-small text-muted">category: new products | 22.02.2017</span></h4>
-          <p> Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          </p>
-        </a>
-        <a class="btn btn-link pull-right text-right pr-0" href="#">read more <span class="ti-arrow-right"></span></a>
-      </div>
-
-      <!-- / SINGLE POST ITEM  -->
 
     </div>
   </div>
-
-  <!-- / ARTICLE LIST -->
-
+  <!--/ HOME SPECIAL  -->
 </div>

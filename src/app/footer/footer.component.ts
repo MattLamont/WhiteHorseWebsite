@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-footer',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
+  }
+
+  onDepartmentClick( name , id ) {
+    const newLink = ['/department', name , id];
+    this.router.navigate(newLink);
+  }
+
+  onPageLinkClick( name ) {
+    const newLink = [ name ];
+    this.router.navigate(newLink);
   }
 
 }
