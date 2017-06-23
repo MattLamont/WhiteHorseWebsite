@@ -10,8 +10,8 @@ import { ActivatedRoute, Router} from '@angular/router';
 })
 export class HomepageViewComponent implements OnInit {
 
-  public new_listings = {};
-  public featured_listings = {};
+  public new_listings: Object = [];
+  public featured_listings: Object = [];
 
   constructor(private route: ActivatedRoute, private router: Router,
     private bindoApiService: BindoApiService) { }
@@ -26,8 +26,6 @@ export class HomepageViewComponent implements OnInit {
       (listings) => {
         this.new_listings = listings.data.listings.slice(0, 4);
         this.featured_listings = listings.data.listings.slice(10, 14);
-        console.log(this.new_listings);
-        console.log(this.featured_listings);
       }
       );
   }

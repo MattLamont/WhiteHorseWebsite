@@ -10,7 +10,7 @@ import {BindoApiService} from '../bindo-api.service';
 })
 export class NavbarComponent implements OnInit {
 
-  public departments = {};
+  public departments: Object = [];
 
   /*
     private departments = [
