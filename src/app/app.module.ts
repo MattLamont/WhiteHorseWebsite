@@ -22,7 +22,7 @@ import { AlertModule } from 'ngx-bootstrap';
 import { PaginationModule } from 'ngx-bootstrap';
 import { CarouselModule } from 'ngx-bootstrap';
 
-const GOOGLE_MAPS_API_KEY = environment.googleMapsApiKey
+const GOOGLE_MAPS_API_KEY = environment.googleMapsApiKey;
 
 @NgModule({
   declarations: [
