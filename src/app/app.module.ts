@@ -20,6 +20,7 @@ import { AgmCoreModule } from '@agm/core';
 
 import { AlertModule } from 'ngx-bootstrap';
 import { PaginationModule } from 'ngx-bootstrap';
+import { CarouselModule } from 'ngx-bootstrap';
 
 const GOOGLE_MAPS_API_KEY = environment.googleMapsApiKey
 
@@ -43,7 +44,8 @@ const GOOGLE_MAPS_API_KEY = environment.googleMapsApiKey
       apiKey: GOOGLE_MAPS_API_KEY
     }),
     AlertModule.forRoot(),
-    PaginationModule.forRoot()
+    PaginationModule.forRoot(),
+    CarouselModule.forRoot()
   ],
   providers: [BindoApiService],
   bootstrap: [AppComponent]

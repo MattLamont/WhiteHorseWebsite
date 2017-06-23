@@ -108,7 +108,7 @@ exports.sendEmail = function(req, res) {
     mailgun.messages().send(data, function(error, body) {
         if( error ){
             console.log( error );
-            res.statusCode( 500 ).send({error: error});
+            res.status( 500 ).send({error: error});
         }
         else{
           res.send( req.body );
