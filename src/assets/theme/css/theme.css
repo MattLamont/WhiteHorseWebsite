@@ -2,15 +2,15 @@
 /**
  * Swiper 3.3.1
  * Most modern mobile touch slider and framework with hardware accelerated transitions
- * 
+ *
  * http://www.idangero.us/swiper/
- * 
+ *
  * Copyright 2016, Vladimir Kharlampidi
  * The iDangero.us
  * http://www.idangero.us/
- * 
+ *
  * Licensed under MIT
- * 
+ *
  * Released on: February 7, 2016
  */
 .swiper-container {
@@ -3520,6 +3520,7 @@ section {
     opacity: 0; }
 
 /* Main carousel style */
+/*
 .carousel {
   width: 100%;
   float: left;
@@ -3557,7 +3558,7 @@ section {
   opacity: 1; }
 .carousel-fade .carousel-control {
   z-index: 2; }
-
+*/
 .img-thumbnail {
   background-color: #fff;
   border: 1px solid #f5f5f5;
@@ -6090,7 +6091,7 @@ a.socialIcon:hover, .socialHoverClass {
   border-bottom: 1px solid #fff; }
 
 /*!
-|||||||||||||||||||||||||||||||||||||| 
+||||||||||||||||||||||||||||||||||||||
 ||||||||||||||||||||||||||||||||||||||
 
 Z O O M  S C S S
