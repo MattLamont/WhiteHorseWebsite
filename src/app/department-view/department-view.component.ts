@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router} from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import {BindoApiService} from '../bindo-api.service';
+import { PaginationModule } from 'ngx-bootstrap';
 
 @Component({
   selector: 'app-department-view',
@@ -15,10 +16,15 @@ export class DepartmentViewComponent implements OnInit {
   public department: String;
   private department_id: String;
 
-  public listings = {};
+  public listings: Object = [];
+
+  public totalItems: number;
+  public currentPage: number;
+  public itemsPerPage: number;
+  public currentNumItems: number;
 
   constructor(private route: ActivatedRoute, private router: Router,
-              private bindoApiService: BindoApiService) {
+    private bindoApiService: BindoApiService) {
   }
 
   ngOnInit() {
@@ -30,19 +36,42 @@ export class DepartmentViewComponent implements OnInit {
       const url_params = '/?department_ids[]=' + this.department_id;
 
       this.bindoApiService
-        .getListings( url_params )
+        .getListings(url_params)
         .subscribe(
         (listings) => {
           this.listings = listings.data.listings;
+          this.totalItems = listings.paging.total_entries;
+          this.itemsPerPage = listings.paging.per_page;
+          this.currentPage = listings.paging.current_page;
+          this.currentNumItems = listings.data.listings.length;
         }
         );
     });
 
   }
 
-  onProductClick( blid: String) {
-      const newLink = ['/product' , blid ];
-      this.router.navigate( newLink );
+  onProductClick(blid: String) {
+    const newLink = ['/product', blid];
+    this.router.navigate(newLink);
+  }
+
+  public pageChanged(event: any): void {
+    this.getListings(event.page);
+  }
+
+  getListings(page: number) {
+
+    const url_params = '/?department_ids[]=' + this.department_id + '&page=' + page;
+
+    this.bindoApiService
+      .getListings(url_params)
+      .subscribe(
+      (listings) => {
+        this.listings = listings.data.listings;
+        this.currentPage = listings.paging.current_page;
+        this.currentNumItems = listings.data.listings.length;
+      }
+      );
   }
 
 
