@@ -47,8 +47,13 @@ export class ProductViewComponent implements OnInit {
         .subscribe(
         (listing) => {
           this.listing = listing.data.listing;
+        },
+        err => {
+          console.log(err);
+          const newLink = ['404'];
+          this.router.navigate(newLink);
         }
-        );
+        )
     });
   }
 

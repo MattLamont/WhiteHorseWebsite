@@ -66,7 +66,7 @@ export class ContactViewComponent implements OnInit {
 
     this.email = new Email(
       'contact@whitehorsevapor.com',
-      'lindsey.stavile@gmail.com',
+      'matthewlamont454@gmail.com',
       this.subject,
       body);
 

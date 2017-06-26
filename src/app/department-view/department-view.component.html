@@ -29,6 +29,11 @@
               </div>
             </div>
           </div>
+
+          <!-- Display error message if no products found -->
+          <div *ngIf="displayError">
+            <h3>Sorry, we did not find any products for this department.</h3>
+          </div>
         </div>
         <!-- / PRODUCTS ROW -->
 
