@@ -1,4 +1,4 @@
-<header class="navbar navbar-container mb-0">
+<header class="navbar navbar-container mb-0 hidden-md hidden-sm hidden-xs">
   <div class="container-fluid">
     <nav class="navbar-default sidebar pb-30">
       <div class="container-fluid">
@@ -34,3 +34,40 @@
     </nav>
   </div>
 </header>
+
+<nav class="navbar navbar-default navbar-fixed-top hidden-lg hidden-xl navbar-mobile">
+  <div class="navbar-header ml-15">
+    <span class="ti-menu info-box-icon mt-15 mr-10" (click)="toggleNavbar()"></span>
+  </div>
+  <div class="container">
+    <h4 class="navbar-title"><strong>White Horse Vapor</strong></h4>
+  </div>
+</nav>
+
+<nav class="navbar navbar-default hidden-lg hidden-xl navbar-mobile invisible">
+  <div class="navbar-header ml-15">
+    <span class="ti-menu info-box-icon mt-15 mr-10" (click)="toggleNavbar()"></span>
+  </div>
+  <div class="container">
+    <h4 class="navbar-title"><strong>White Horse Vapor</strong></h4>
+  </div>
+</nav>
+
+
+<div class="navbar-container slide-navbar container-fluid hidden-lg hidden-xl" [@slideInOut]="navbarState">
+  <div class="container-fluid">
+    <ul class="navbar-user mb-30 pull-left width-100">
+    </ul>
+
+    <ul class="nav navbar-nav nav navbar-nav side-nav text-center">
+      <li *ngFor="let department of departments" class="active active-link" (click)="clickLink(department.name,department.id)">
+        <a>{{department.name}}</a>
+      </li>
+      <li class="active active-link" (click)="clickAboutLink()">
+        <a>About</a>
+      </li>
+      <li class="active active-link" (click)="clickContactLink()">
+        <a>Contact</a>
+      </li>
+    </ul>
+  </div>

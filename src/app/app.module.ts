@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { environment } from 'environments/environment';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -41,6 +42,7 @@ const GOOGLE_MAPS_API_KEY = environment.googleMapsApiKey;
     BrowserModule,
     FormsModule,
     HttpModule,
+    BrowserAnimationsModule,
     routing,
     AgmCoreModule.forRoot({
       apiKey: GOOGLE_MAPS_API_KEY
