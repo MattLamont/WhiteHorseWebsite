@@ -24,7 +24,7 @@
       <!-- PRODUCT SINGLE -->
       <div class="col-md-3 col-sm-6" *ngFor="let listing of new_listings">
         <div class="product-item">
-          <div class="product-item-thumbnail text-center mb-15" (click)="onProductClick( listing.blid )">
+          <div class="product-item-thumbnail text-center mb-15" (click)="onProductClick( listing )">
             <a class="product-item-thumbnail-link"></a>
             <span class="product-item-thumbnail-label">new</span>
             <img src="{{listing.big_image_url}} || assets/img/products/product-01.jpg" class="img-responsive center-cropped" alt="product image">
@@ -34,7 +34,7 @@
           </div>
           <div class="row">
             <div class="col-xs-6">
-              <a class="h5" (click)="onProductClick( listing.blid )">{{listing.name}}</a>
+              <a class="h5" (click)="onProductClick( listing )">{{listing.name}}</a>
             </div>
 
             <div class="col-xs-6 text-right">
@@ -149,7 +149,7 @@
     </div>
     <div class="row">
       <!-- PRODUCT SINGLE -->
-      <div class="col-md-3 col-sm-6" *ngFor="let listing of featured_listings" (click)="onProductClick( listing.blid )">
+      <div class="col-md-3 col-sm-6" *ngFor="let listing of featured_listings" (click)="onProductClick( listing )">
         <div class="product-item">
           <div class="product-item-thumbnail text-center mb-15">
             <a class="product-item-thumbnail-link"></a>
@@ -160,7 +160,7 @@
           </div>
           <div class="row">
             <div class="col-xs-6">
-              <a class="h5" (click)="onProductClick( listing.blid )">{{listing.name}}</a>
+              <a class="h5" (click)="onProductClick( listing )">{{listing.name}}</a>
             </div>
 
             <div class="col-xs-6 text-right">

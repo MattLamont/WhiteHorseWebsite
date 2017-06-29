@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { BindoApiService } from './bindo-api.service';
+import {SharedDataService} from './shared-data.service';
 import { HomepageViewComponent } from './homepage-view/homepage-view.component';
 import { ProductViewComponent } from './product-view/product-view.component';
 
@@ -51,7 +52,10 @@ const GOOGLE_MAPS_API_KEY = environment.googleMapsApiKey;
     PaginationModule.forRoot(),
     CarouselModule.forRoot()
   ],
-  providers: [BindoApiService],
+  providers: [
+      BindoApiService,
+      SharedDataService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CarouselModule } from 'ngx-bootstrap';
 import {BindoApiService} from '../bindo-api.service';
 import { ActivatedRoute, Router} from '@angular/router';
+import { SharedDataService } from '../shared-data.service';
 
 @Component({
   selector: 'app-homepage-view',
@@ -14,7 +15,7 @@ export class HomepageViewComponent implements OnInit {
   public featured_listings: Object = [];
 
   constructor(private route: ActivatedRoute, private router: Router,
-    private bindoApiService: BindoApiService) { }
+    private bindoApiService: BindoApiService , private sharedDataService: SharedDataService) { }
 
   ngOnInit() {
 
@@ -30,8 +31,9 @@ export class HomepageViewComponent implements OnInit {
       );
   }
 
-  onProductClick( blid: string ){
-      const newLink = ['/product' , blid ];
+  onProductClick( listing: any ){
+      this.sharedDataService.product = listing;
+      const newLink = ['/product' , listing.blid ];
       this.router.navigate( newLink );
   }
 

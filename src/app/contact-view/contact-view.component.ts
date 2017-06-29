@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {BindoApiService} from '../bindo-api.service';
 import {Email} from '../models/email';
 import { AlertModule } from 'ngx-bootstrap';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-contact-view',
@@ -12,7 +13,7 @@ import { AlertModule } from 'ngx-bootstrap';
 
 export class ContactViewComponent implements OnInit {
 
-  constructor(private bindoApiService: BindoApiService) { }
+  constructor(private route: ActivatedRoute , private bindoApiService: BindoApiService) { }
 
   public email: Email;
 

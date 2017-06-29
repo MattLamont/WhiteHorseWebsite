@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute, Router} from '@angular/router';
 import {BindoApiService} from '../bindo-api.service';
 import { trigger, state, style, transition, animate} from '@angular/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @Component({

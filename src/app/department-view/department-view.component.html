@@ -13,13 +13,13 @@
           <!-- PRODUCT SINGLE -->
           <div class="col-md-3 col-sm-6" *ngFor="let listing of listings">
             <div class="product-item">
-              <div class="product-item-thumbnail text-center mb-15" (click)="onProductClick(listing.blid)">
+              <div class="product-item-thumbnail text-center mb-15" (click)="onProductClick(listing)">
                 <a class="product-item-thumbnail-link"></a>
                 <img src="{{listing.big_image_url || 'assets/img/products/product-01.jpg'}}" class="img-responsive center-cropped" alt="product image">
               </div>
               <div class="row">
                 <div class="col-xs-6">
-                  <a class="h5" (click)="onProductClick(listing.blid)">{{listing.name}}</a>
+                  <a class="h5" (click)="onProductClick(listing)">{{listing.name}}</a>
                   <h5 class="text-muted">{{listing.quantity}} in stock</h5>
                 </div>
 
