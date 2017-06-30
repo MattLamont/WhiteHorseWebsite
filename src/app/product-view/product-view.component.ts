@@ -21,17 +21,17 @@ export class ProductViewComponent implements OnInit {
 
   public listing: any;
 
-  public name: string = "";
-  public email_address: string = "";
-  public text: string = "";
-  private subject: string = "";
-  private email_sent: boolean = false;
+  public name = '';
+  public email_address = '';
+  public text = '';
+  private subject = '';
+  private email_sent = false;
   private email: Email;
 
   public alert_message: string;
-  public alert_type: string = 'danger';
+  public alert_type = 'danger';
 
-  public loading: boolean = false;
+  public loading = false;
 
   constructor(private route: ActivatedRoute, private router: Router,
     private bindoApiService: BindoApiService, private sharedDataService: SharedDataService) {
@@ -45,9 +45,7 @@ export class ProductViewComponent implements OnInit {
 
       if (this.sharedDataService.product) {
         this.listing = this.sharedDataService.product;
-      }
-
-      else {
+      } else {
         this.loading = true;
         const url_params = '/' + this.product_id;
 
@@ -63,7 +61,7 @@ export class ProductViewComponent implements OnInit {
             const newLink = ['404'];
             this.router.navigate(newLink);
           }
-          )
+      );
       }
 
     });
@@ -71,27 +69,27 @@ export class ProductViewComponent implements OnInit {
 
   sendEmail() {
 
-    if (this.email_sent == true) {
+    if (this.email_sent === true) {
       this.alert_message = 'Email has already been sent';
       return;
     }
 
-    if (this.name.length == 0) {
+    if (this.name.length === 0) {
       this.alert_message = 'Please enter a name';
       return;
     }
 
-    if (this.email_address.length == 0) {
+    if (this.email_address.length === 0) {
       this.alert_message = 'Please enter an email address';
       return;
     }
 
-    if (this.text.length == 0) {
+    if (this.text.length === 0) {
       this.alert_message = 'Please enter a message';
       return;
     }
 
-    let body =
+    const body =
       'Name: ' + this.name + '\n' +
       'Email: ' + this.email_address + '\n' +
       'Subject: Product Inquiry\n' +

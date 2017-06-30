@@ -24,9 +24,9 @@ export class DepartmentViewComponent implements OnInit, OnDestroy {
   public itemsPerPage: number;
   public currentNumItems: number;
 
-  public displayError: boolean = false;
+  public displayError = false;
 
-  public loading: boolean = false;
+  public loading = false;
 
   constructor(private route: ActivatedRoute, private router: Router,
     private bindoApiService: BindoApiService, private sharedDataService: SharedDataService) {
@@ -37,14 +37,14 @@ export class DepartmentViewComponent implements OnInit, OnDestroy {
     this.sub = this.route.params.subscribe(params => {
       this.department = params['name'];
 
-      //try to find the current department in the array of departments stored in shared data service
-      let department_info: any = this.sharedDataService.departments.find(this.findDepartment, this);
+      // try to find the current department in the array of departments stored in shared data service
+      const department_info: any = this.sharedDataService.departments.find(this.findDepartment, this);
 
-      //if we found the department, will will use its info
+      // if we found the department, will will use its info
       if (department_info) {
 
-        //if the department listings are already stored, just use them and skip api call
-        if (department_info.results.length != 0) {
+        // if the department listings are already stored, just use them and skip api call
+        if (department_info.results.length !== 0) {
           this.department_id = department_info.id;
           this.listings = department_info.results;
           this.totalItems = department_info.paging.total_entries;
@@ -52,17 +52,13 @@ export class DepartmentViewComponent implements OnInit, OnDestroy {
           this.currentPage = department_info.paging.current_page;
           this.currentNumItems = this.listings.length;
           return;
-        }
-
-        //we did not find listings already stored, so go call the api
-        else {
+        } else {
+          // else we did not find listings already stored, so go call the api
           this.department_id = department_info.id;
           this.getListings(1);
         }
-      }
-
-      //we did not find the department, so it does not exist. 404 page
-      else {
+      } else {
+        // we did not find the department, so it does not exist. 404 page
         const newLink = ['404'];
         this.router.navigate(newLink);
       }

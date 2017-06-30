@@ -28,7 +28,7 @@ export class NavbarComponent implements OnInit {
 
   public departments: Object = [];
 
-  public navbarState: string = 'out';
+  public navbarState = 'out';
 
 
   constructor(private route: ActivatedRoute, private router: Router,

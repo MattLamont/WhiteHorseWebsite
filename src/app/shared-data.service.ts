@@ -9,55 +9,55 @@ export class SharedDataService {
 
     public departments = [
         {
-            'name':'Hardware',
+            'name': 'Hardware',
             'id': 168145,
             'results': [],
             'paging': {}
         },
         {
-            'name':'E-Liquid',
+            'name': 'E-Liquid',
             'id': 168148,
             'results': [],
             'paging': {}
         },
         {
-            'name':'Accessories',
+            'name': 'Accessories',
             'id': 168151,
             'results': [],
             'paging': {}
         },
         {
-            'name':'Wax and Dry Herb',
+            'name': 'Wax and Dry Herb',
             'id': 168154,
             'results': [],
             'paging': {}
         },
         {
-            'name':'Apparel',
+            'name': 'Apparel',
             'id': 168157,
             'results': [],
             'paging': {}
         },
         {
-            'name':'Drink',
+            'name': 'Drink',
             'id': 168160,
             'results': [],
             'paging': {}
         },
         {
-            'name':'White Horse Product',
+            'name': 'White Horse Product',
             'id': 168163,
             'results': [],
             'paging': {}
         },
         {
-            'name':'Coils',
+            'name': 'Coils',
             'id': 168166,
             'results': [],
             'paging': {}
         },
         {
-            'name':'CBD Oil',
+            'name': 'CBD Oil',
             'id': 168838,
             'results': [],
             'paging': {}

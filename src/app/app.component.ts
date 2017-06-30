@@ -21,9 +21,9 @@ export class AppComponent implements OnInit {
 
   }
 
-  ngOnInit(){
+  ngOnInit() {
 
-      //preload the first page of listings for each department and pass to shared data service
+      // preload the first page of listings for each department and pass to shared data service
       this.sharedDataService.departments.forEach( (element) => {
           const url_params = '/?department_ids[]=' + element.id;
 

@@ -14,14 +14,14 @@ export class HomepageViewComponent implements OnInit {
   public new_listings: Object = [];
   public featured_listings: Object = [];
 
-  public loading: boolean = false;
+  public loading = false;
 
   constructor(private route: ActivatedRoute, private router: Router,
     private bindoApiService: BindoApiService, private sharedDataService: SharedDataService) { }
 
   ngOnInit() {
     this.loading = true;
-    const url_params: string = '';
+    const url_params = '';
 
     this.bindoApiService
       .getListings(url_params)
