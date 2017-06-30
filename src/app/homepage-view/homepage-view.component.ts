@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CarouselModule } from 'ngx-bootstrap';
 import {BindoApiService} from '../bindo-api.service';
 import { ActivatedRoute, Router} from '@angular/router';
+import { SharedDataService } from '../shared-data.service';
 
 @Component({
   selector: 'app-homepage-view',
@@ -13,30 +14,34 @@ export class HomepageViewComponent implements OnInit {
   public new_listings: Object = [];
   public featured_listings: Object = [];
 
+  public loading = false;
+
   constructor(private route: ActivatedRoute, private router: Router,
-    private bindoApiService: BindoApiService) { }
+    private bindoApiService: BindoApiService, private sharedDataService: SharedDataService) { }
 
   ngOnInit() {
-
-    const url_params: string = '';
+    this.loading = true;
+    const url_params = '';
 
     this.bindoApiService
       .getListings(url_params)
       .subscribe(
       (listings) => {
+        this.loading = false;
         this.new_listings = listings.data.listings.slice(0, 4);
         this.featured_listings = listings.data.listings.slice(10, 14);
       }
       );
   }
 
-  onProductClick( blid: string ){
-      const newLink = ['/product' , blid ];
-      this.router.navigate( newLink );
+  onProductClick(listing: any) {
+    this.sharedDataService.product = listing;
+    const newLink = ['/product', listing.blid];
+    this.router.navigate(newLink);
   }
 
-  onDepartmentClick( name , id ) {
-    const newLink = ['/department', name , id];
+  onDepartmentClick(name) {
+    const newLink = ['/department', name];
     this.router.navigate(newLink);
   }
 

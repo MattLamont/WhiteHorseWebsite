@@ -9,17 +9,22 @@
     <div class="col-md-12">
       <!-- PRODUCTS ROW -->
       <div class="container-fluid">
+
+        <!-- Loading animation -->
+        <div class="loader" *ngIf="loading">Loading...</div>
+        <!-- End Loading animation -->
+
         <div class="row flex-list">
           <!-- PRODUCT SINGLE -->
           <div class="col-md-3 col-sm-6" *ngFor="let listing of listings">
             <div class="product-item">
-              <div class="product-item-thumbnail text-center mb-15" (click)="onProductClick(listing.blid)">
+              <div class="product-item-thumbnail text-center mb-15" (click)="onProductClick(listing)">
                 <a class="product-item-thumbnail-link"></a>
                 <img src="{{listing.big_image_url || 'assets/img/products/product-01.jpg'}}" class="img-responsive center-cropped" alt="product image">
               </div>
               <div class="row">
                 <div class="col-xs-6">
-                  <a class="h5" (click)="onProductClick(listing.blid)">{{listing.name}}</a>
+                  <a class="h5" (click)="onProductClick(listing)">{{listing.name}}</a>
                   <h5 class="text-muted">{{listing.quantity}} in stock</h5>
                 </div>
 
@@ -29,11 +34,16 @@
               </div>
             </div>
           </div>
+
+          <!-- Display error message if no products found -->
+          <div *ngIf="displayError">
+            <h3>Sorry, we did not find any products for this department.</h3>
+          </div>
         </div>
         <!-- / PRODUCTS ROW -->
 
         <!-- PAGINATION -->
-        <div class="col-md-6">
+        <div class="col-md-6" *ngIf="(totalItems / itemsPerPage) > 1">
           <pagination [directionLinks]="false" [totalItems]="totalItems" [itemsPerPage]="itemsPerPage" [(ngModel)]="currentPage" (pageChanged)="pageChanged($event)"></pagination>
         </div>
         <!-- / PAGINATION -->

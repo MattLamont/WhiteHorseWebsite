@@ -14,7 +14,6 @@ exports.getListing = function(req, res) {
     process.env.BINDO_STORE_SLUG +
     req.url;
 
-  console.log(listingUrl);
 
   var options = {
     url: listingUrl,

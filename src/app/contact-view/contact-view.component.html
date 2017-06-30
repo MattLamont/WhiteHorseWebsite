@@ -48,8 +48,8 @@
                 <button (click)="sendEmail()" type="submit" class="btn btn-margin btn-primary btn-lg text-center">send</button>
               </form>
 
-              <div *ngIf="alert_message">
-                <alert type="danger"><span [innerHtml]="alert_message"></span></alert>
+              <div *ngIf="alert_message" class="mt-20">
+                <alert [type]="alert_type"><span [innerHtml]="alert_message"></span></alert>
               </div>
             </div>
           </div>

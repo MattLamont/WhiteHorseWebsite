@@ -15,6 +15,7 @@
   "private": true,
   "dependencies": {
     "@agm/core": "^1.0.0-beta.0",
+    "@angular/animations": "^4.2.4",
     "@angular/cli": "1.0.0",
     "@angular/common": "^4.0.0",
     "@angular/compiler": "^4.0.0",
@@ -32,6 +33,7 @@
     "express": "^4.15.3",
     "mailgun-js": "^0.11.2",
     "ng-bootstrap": "^1.6.3",
+    "ng2-page-transition": "^1.1.0",
     "ngx-bootstrap": "^1.7.1",
     "request": "^2.81.0",
     "rxjs": "^5.1.0",

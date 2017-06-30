@@ -5,6 +5,7 @@ import { ProductViewComponent } from './product-view/product-view.component';
 import { DepartmentViewComponent } from './department-view/department-view.component';
 import { AboutViewComponent } from './about-view/about-view.component';
 import { ContactViewComponent } from './contact-view/contact-view.component';
+import { NotFoundViewComponent } from './not-found-view/not-found-view.component';
 
 // Route Configuration
 export const routes: Routes = [
@@ -18,8 +19,11 @@ export const routes: Routes = [
   { path: 'about', component: AboutViewComponent },
   { path: 'contact', component: ContactViewComponent },
 
-  { path: 'department/:name/:id', component: DepartmentViewComponent },
-  { path: 'product/:id', component: ProductViewComponent }
+  { path: 'department/:name', component: DepartmentViewComponent },
+  { path: 'product/:id', component: ProductViewComponent },
+
+  { path: '404' , component: NotFoundViewComponent },
+  { path: '**', component: NotFoundViewComponent }
 ];
 
 
