@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {BindoApiService} from '../bindo-api.service';
 import {Email} from '../models/email';
 import { AlertModule } from 'ngx-bootstrap';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-contact-view',
@@ -12,18 +13,24 @@ import { AlertModule } from 'ngx-bootstrap';
 
 export class ContactViewComponent implements OnInit {
 
-  constructor(private bindoApiService: BindoApiService) { }
-
   public email: Email;
 
-  public name: string = "";
-  public email_address: string = "";
-  public phone: string = "";
-  public subject: string = "";
-  public message: string = "";
+  public name = '';
+  public email_address = '';
+  public phone = '';
+  public subject = '';
+  public message = '';
 
-  public alert_message: string = "";
-  private email_sent: boolean = false;
+  public alert_message = '';
+  public alert_type = 'danger';
+  private email_sent = false;
+
+  public title = 'My first AGM project';
+  public lat = 39.6158629;
+  public lng = -105.0932672;
+  public zoom = 14;
+
+  constructor(private route: ActivatedRoute, private bindoApiService: BindoApiService) { }
 
   ngOnInit() {
 
@@ -31,32 +38,32 @@ export class ContactViewComponent implements OnInit {
 
   sendEmail() {
 
-    if (this.email_sent == true) {
+    if (this.email_sent === true) {
       this.alert_message = 'Email has already been sent';
       return;
     }
 
-    if (this.name.length == 0) {
+    if (this.name.length === 0) {
       this.alert_message = 'Please enter a name';
       return;
     }
 
-    if (this.email_address.length == 0) {
+    if (this.email_address.length === 0) {
       this.alert_message = 'Please enter an email address';
       return;
     }
 
-    if (this.subject.length == 0) {
+    if (this.subject.length === 0) {
       this.alert_message = 'Please enter a subject';
       return;
     }
 
-    if (this.message.length == 0) {
+    if (this.message.length === 0) {
       this.alert_message = 'Please enter a message';
       return;
     }
 
-    let body =
+    const body =
       'Name: ' + this.name + '\n' +
       'Phone: ' + this.phone + '\n' +
       'Email: ' + this.email_address + '\n' +
@@ -66,7 +73,7 @@ export class ContactViewComponent implements OnInit {
 
     this.email = new Email(
       'contact@whitehorsevapor.com',
-      'lindsey.stavile@gmail.com',
+      'matthewlamont454@gmail.com',
       this.subject,
       body);
 
@@ -76,14 +83,9 @@ export class ContactViewComponent implements OnInit {
       .postEmail(this.email)
       .subscribe(
       (res) => {
+        this.alert_type = 'success';
         this.alert_message = 'Email successfully sent';
       }
       );
   }
-
-  title: string = 'My first AGM project';
-  lat: number = 39.6158629;
-  lng: number = -105.0932672;
-  zoom: number = 14;
-
 }
