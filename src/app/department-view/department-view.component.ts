@@ -26,6 +26,8 @@ export class DepartmentViewComponent implements OnInit, OnDestroy {
 
   public displayError: boolean = false;
 
+  public loading: boolean = false;
+
   constructor(private route: ActivatedRoute, private router: Router,
     private bindoApiService: BindoApiService, private sharedDataService: SharedDataService) {
   }
@@ -84,12 +86,14 @@ export class DepartmentViewComponent implements OnInit, OnDestroy {
 
   getListings(page: number) {
 
+    this.loading = true;
     const url_params = '/?department_ids[]=' + this.department_id + '&page=' + page;
 
     this.bindoApiService
       .getListings(url_params)
       .subscribe(
       (listings) => {
+        this.loading = false;
         this.listings = listings.data.listings;
         this.totalItems = listings.paging.total_entries;
         this.itemsPerPage = listings.paging.per_page;

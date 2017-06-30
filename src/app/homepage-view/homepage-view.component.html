@@ -21,6 +21,11 @@
       </div>
     </div>
     <div class="row">
+
+      <!-- Loading animation -->
+      <div class="loader col-12" *ngIf="loading">Loading...</div>
+      <!-- End Loading animation -->
+
       <!-- PRODUCT SINGLE -->
       <div class="col-md-3 col-sm-6" *ngFor="let listing of new_listings">
         <div class="product-item">
@@ -148,6 +153,11 @@
       </div>
     </div>
     <div class="row">
+
+      <!-- Loading animation -->
+      <div class="loader col-12" *ngIf="loading">Loading...</div>
+      <!-- End Loading animation -->
+
       <!-- PRODUCT SINGLE -->
       <div class="col-md-3 col-sm-6" *ngFor="let listing of featured_listings" (click)="onProductClick( listing )">
         <div class="product-item">

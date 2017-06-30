@@ -31,6 +31,8 @@ export class ProductViewComponent implements OnInit {
   public alert_message: string;
   public alert_type: string = 'danger';
 
+  public loading: boolean = false;
+
   constructor(private route: ActivatedRoute, private router: Router,
     private bindoApiService: BindoApiService, private sharedDataService: SharedDataService) {
   }
@@ -46,12 +48,14 @@ export class ProductViewComponent implements OnInit {
       }
 
       else {
+        this.loading = true;
         const url_params = '/' + this.product_id;
 
         this.bindoApiService
           .getListings(url_params)
           .subscribe(
           (listing) => {
+            this.loading = false;
             this.listing = listing.data.listing;
           },
           err => {

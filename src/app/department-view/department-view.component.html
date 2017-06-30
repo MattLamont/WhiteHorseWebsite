@@ -9,6 +9,11 @@
     <div class="col-md-12">
       <!-- PRODUCTS ROW -->
       <div class="container-fluid">
+
+        <!-- Loading animation -->
+        <div class="loader" *ngIf="loading">Loading...</div>
+        <!-- End Loading animation -->
+
         <div class="row flex-list">
           <!-- PRODUCT SINGLE -->
           <div class="col-md-3 col-sm-6" *ngFor="let listing of listings">
@@ -38,7 +43,7 @@
         <!-- / PRODUCTS ROW -->
 
         <!-- PAGINATION -->
-        <div class="col-md-6">
+        <div class="col-md-6" *ngIf="(totalItems / itemsPerPage) > 1">
           <pagination [directionLinks]="false" [totalItems]="totalItems" [itemsPerPage]="itemsPerPage" [(ngModel)]="currentPage" (pageChanged)="pageChanged($event)"></pagination>
         </div>
         <!-- / PAGINATION -->

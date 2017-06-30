@@ -13,7 +13,7 @@ import {ActivatedRoute} from '@angular/router';
 
 export class ContactViewComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute , private bindoApiService: BindoApiService) { }
+  constructor(private route: ActivatedRoute, private bindoApiService: BindoApiService) { }
 
   public email: Email;
 
@@ -24,6 +24,7 @@ export class ContactViewComponent implements OnInit {
   public message: string = "";
 
   public alert_message: string = "";
+  public alert_type: string = 'danger';
   private email_sent: boolean = false;
 
   ngOnInit() {
@@ -77,6 +78,7 @@ export class ContactViewComponent implements OnInit {
       .postEmail(this.email)
       .subscribe(
       (res) => {
+        this.alert_type = 'success';
         this.alert_message = 'Email successfully sent';
       }
       );
