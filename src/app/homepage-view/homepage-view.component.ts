@@ -37,8 +37,8 @@ export class HomepageViewComponent implements OnInit {
       this.router.navigate( newLink );
   }
 
-  onDepartmentClick( name , id ) {
-    const newLink = ['/department', name , id];
+  onDepartmentClick( name ) {
+    const newLink = ['/department', name];
     this.router.navigate(newLink);
   }
 

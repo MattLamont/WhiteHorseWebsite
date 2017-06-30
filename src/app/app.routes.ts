@@ -19,7 +19,7 @@ export const routes: Routes = [
   { path: 'about', component: AboutViewComponent },
   { path: 'contact', component: ContactViewComponent },
 
-  { path: 'department/:name/:id', component: DepartmentViewComponent },
+  { path: 'department/:name', component: DepartmentViewComponent },
   { path: 'product/:id', component: ProductViewComponent },
 
   { path: '404' , component: NotFoundViewComponent },

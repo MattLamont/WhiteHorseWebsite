@@ -14,10 +14,10 @@ import {SharedDataService} from '../shared-data.service';
 export class DepartmentViewComponent implements OnInit, OnDestroy {
 
   private sub: any;
-  public department: String;
-  private department_id: String;
+  public department: string;
+  private department_id: string;
 
-  public listings: Object = [];
+  public listings = [];
 
   public totalItems: number;
   public currentPage: number;
@@ -34,35 +34,46 @@ export class DepartmentViewComponent implements OnInit, OnDestroy {
     // Subscribe to route params
     this.sub = this.route.params.subscribe(params => {
       this.department = params['name'];
-      this.department_id = params['id'];
 
-      const url_params = '/?department_ids[]=' + this.department_id;
+      //try to find the current department in the array of departments stored in shared data service
+      let department_info: any = this.sharedDataService.departments.find(this.findDepartment, this);
 
-      this.bindoApiService
-        .getListings(url_params)
-        .subscribe(
-        (listings) => {
-          if (listings.data.listings.length < 1 ) {
-            this.displayError = true;
-          }
-          this.listings = listings.data.listings;
-          this.totalItems = listings.paging.total_entries;
-          this.itemsPerPage = listings.paging.per_page;
-          this.currentPage = listings.paging.current_page;
-          this.currentNumItems = listings.data.listings.length;
-        },
-        err => {
-          console.log(err);
-          const newLink = ['404'];
-          this.router.navigate(newLink);
+      //if we found the department, will will use its info
+      if (department_info) {
+
+        //if the department listings are already stored, just use them and skip api call
+        if (department_info.results.length != 0) {
+          this.department_id = department_info.id;
+          this.listings = department_info.results;
+          this.totalItems = department_info.paging.total_entries;
+          this.itemsPerPage = department_info.paging.per_page;
+          this.currentPage = department_info.paging.current_page;
+          this.currentNumItems = this.listings.length;
+          return;
         }
-        );
+
+        //we did not find listings already stored, so go call the api
+        else {
+          this.department_id = department_info.id;
+          this.getListings(1);
+        }
+      }
+
+      //we did not find the department, so it does not exist. 404 page
+      else {
+        const newLink = ['404'];
+        this.router.navigate(newLink);
+      }
     });
 
   }
 
+  findDepartment(element) {
+    return element.name === this.department;
+  }
+
   onProductClick(listing: any) {
-      this.sharedDataService.product = listing;
+    this.sharedDataService.product = listing;
     const newLink = ['/product', listing.blid];
     this.router.navigate(newLink);
   }
@@ -80,13 +91,19 @@ export class DepartmentViewComponent implements OnInit, OnDestroy {
       .subscribe(
       (listings) => {
         this.listings = listings.data.listings;
+        this.totalItems = listings.paging.total_entries;
+        this.itemsPerPage = listings.paging.per_page;
         this.currentPage = listings.paging.current_page;
         this.currentNumItems = listings.data.listings.length;
+      },
+      (error) => {
+        const newLink = ['404'];
+        this.router.navigate(newLink);
       }
       );
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
 
   }
 

@@ -19,7 +19,7 @@
           </ul>
 
           <ul class="nav navbar-nav nav navbar-nav side-nav text-center">
-            <li *ngFor="let department of departments" class="active" (click)="clickLink(department.name,department.id)">
+            <li *ngFor="let department of departments" class="active" (click)="clickLink(department.name)">
               <a>{{department.name}}</a>
             </li>
             <li class="active" (click)="clickAboutLink()">
@@ -60,7 +60,7 @@
     </ul>
 
     <ul class="nav navbar-nav nav navbar-nav side-nav text-center">
-      <li *ngFor="let department of departments" class="active active-link" (click)="clickLink(department.name,department.id)">
+      <li *ngFor="let department of departments" class="active active-link" (click)="clickLink(department.name)">
         <a>{{department.name}}</a>
       </li>
       <li class="active active-link" (click)="clickAboutLink()">

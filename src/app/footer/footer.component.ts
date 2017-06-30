@@ -13,8 +13,8 @@ export class FooterComponent implements OnInit {
   ngOnInit() {
   }
 
-  onDepartmentClick( name , id ) {
-    const newLink = ['/department', name , id];
+  onDepartmentClick( name ) {
+    const newLink = ['/department', name];
     this.router.navigate(newLink);
   }
 
