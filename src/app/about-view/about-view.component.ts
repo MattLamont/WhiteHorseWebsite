@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-about-view',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutViewComponent implements OnInit {
 
-  constructor() { }
+  constructor( private titleService: Title) { }
 
   ngOnInit() {
+      //set HTML title tag for SEO
+      this.titleService.setTitle( 'About' );
   }
 
 }
