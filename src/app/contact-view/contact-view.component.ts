@@ -3,6 +3,7 @@ import {BindoApiService} from '../bindo-api.service';
 import {Email} from '../models/email';
 import { AlertModule } from 'ngx-bootstrap';
 import {ActivatedRoute} from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-contact-view',
@@ -30,9 +31,13 @@ export class ContactViewComponent implements OnInit {
   public lng = -105.0932672;
   public zoom = 14;
 
-  constructor(private route: ActivatedRoute, private bindoApiService: BindoApiService) { }
+  constructor(private route: ActivatedRoute, private bindoApiService: BindoApiService,
+              private titleService: Title) { }
 
   ngOnInit() {
+
+      //set HTML title tag for SEO
+      this.titleService.setTitle( 'Contact' );
 
   }
 

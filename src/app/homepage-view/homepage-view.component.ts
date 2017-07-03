@@ -3,6 +3,7 @@ import { CarouselModule } from 'ngx-bootstrap';
 import {BindoApiService} from '../bindo-api.service';
 import { ActivatedRoute, Router} from '@angular/router';
 import { SharedDataService } from '../shared-data.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-homepage-view',
@@ -17,11 +18,15 @@ export class HomepageViewComponent implements OnInit {
   public loading = false;
 
   constructor(private route: ActivatedRoute, private router: Router,
-    private bindoApiService: BindoApiService, private sharedDataService: SharedDataService) { }
+    private bindoApiService: BindoApiService, private sharedDataService: SharedDataService,
+    private titleService: Title) { }
 
   ngOnInit() {
     this.loading = true;
     const url_params = '';
+
+    //set HTML title tag for SEO
+    this.titleService.setTitle( 'Home' );
 
     this.bindoApiService
       .getListings(url_params)
