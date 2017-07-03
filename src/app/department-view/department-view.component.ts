@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import {BindoApiService} from '../bindo-api.service';
 import { PaginationModule } from 'ngx-bootstrap';
 import {SharedDataService} from '../shared-data.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-department-view',
@@ -29,13 +30,17 @@ export class DepartmentViewComponent implements OnInit, OnDestroy {
   public loading = false;
 
   constructor(private route: ActivatedRoute, private router: Router,
-    private bindoApiService: BindoApiService, private sharedDataService: SharedDataService) {
+    private bindoApiService: BindoApiService, private sharedDataService: SharedDataService,
+    private titleService: Title) {
   }
 
   ngOnInit() {
     // Subscribe to route params
     this.sub = this.route.params.subscribe(params => {
       this.department = params['name'];
+
+      //set HTML title tag for SEO
+      this.titleService.setTitle( this.department );
 
       // try to find the current department in the array of departments stored in shared data service
       const department_info: any = this.sharedDataService.departments.find(this.findDepartment, this);
