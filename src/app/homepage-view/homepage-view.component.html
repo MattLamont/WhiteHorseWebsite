@@ -1,5 +1,5 @@
 <!-- HOME SLIDER -->
-<carousel class="hidden-sm">
+<carousel class="hidden-sm hidden-xs">
   <slide>
     <img class="img-responsive carousel-image" src="assets/img/slider/slide-01.jpg" alt="First slide">
   </slide>
@@ -27,12 +27,11 @@
       <!-- End Loading animation -->
 
       <!-- PRODUCT SINGLE -->
-      <div class="col-md-3 col-sm-6" *ngFor="let listing of new_listings">
+      <div class="col-md-3 col-sm-3 center-block" *ngFor="let listing of new_listings">
         <div class="product-item">
           <div class="product-item-thumbnail text-center mb-15" (click)="onProductClick( listing )">
             <a class="product-item-thumbnail-link"></a>
-            <span class="product-item-thumbnail-label">new</span>
-            <img src="{{listing.big_image_url}} || assets/img/products/product-01.jpg" class="img-responsive center-cropped" alt="product image">
+            <img src="{{listing.big_image_url}} || assets/img/products/product-01.jpg" class="img-responsive center-cropped product-item-img" alt="product image">
             <div class="product-item-thumbnail-overlay">
               <a class="btn btn-primary">View Product</a>
             </div>
@@ -63,7 +62,7 @@
     <div class="row">
       <!-- / HORIZONTAL SEPARATE -->
       <!-- SINGLE INFO BOX -->
-      <div class="col-md-3 info-box">
+      <div class="col-sm-3 info-box">
         <span class="ti-mobile info-box-icon mt-10 mr-10"></span>
         <h5 class="info-box-text">Call Inquiries<br>
                         <span class="text-muted">(303) 904-6932</span>
@@ -72,7 +71,7 @@
       <!-- SINGLE INFO BOX -->
 
       <!-- SINGLE INFO BOX -->
-      <div class="col-md-3 info-box">
+      <div class="col-sm-3 info-box">
         <span class="ti-user info-box-icon mt-10 mr-10"></span>
         <h5 class="info-box-text">Experienced<br>
                         <span class="text-muted">Professionals</span>
@@ -81,7 +80,7 @@
       <!-- SINGLE INFO BOX -->
 
       <!-- SINGLE INFO BOX -->
-      <div class="col-md-3 info-box">
+      <div class="col-sm-3 info-box">
         <span class="ti-shopping-cart info-box-icon mt-10 mr-10"></span>
         <h5 class="info-box-text">Great<br>
                         <span class="text-muted">Products</span>
@@ -90,7 +89,7 @@
       <!-- SINGLE INFO BOX -->
 
       <!-- SINGLE INFO BOX -->
-      <div class="col-md-3 info-box">
+      <div class="col-sm-3 info-box">
         <span class="ti-comments info-box-icon mt-10 mr-10"></span>
         <h5 class="info-box-text">Attentive<br>
                         <span class="text-muted">Customer Service</span>
@@ -113,10 +112,10 @@
       <div class="col-md-6">
         <div class="row">
           <div class="col-md-12 mb-30">
-            <div class="promo-box">
-              <img src="assets/img/products/composition-1.jpg" class="img-responsive" alt="product image">
+            <div class="promo-box center-block">
+              <img src="assets/img/products/composition-1.jpg" class="img-responsive product-item-img" alt="product image">
               <div class="promo-box-content">
-                <div class="text-center mr-30">
+                <div class="text-center center-block">
                   <h3 class="mb-15 light">mid season<br>sale!</h3>
                   <a href="#" class="btn btn-primary">details <span class="ti-angle-right"></span></a>
                 </div>
@@ -129,10 +128,10 @@
       <div class="col-md-6">
         <div class="row">
           <div class="col-md-12 mb-30">
-            <div class="promo-box">
-              <img src="assets/img/products/composition-2.jpg" class="img-responsive" alt="product image">
+            <div class="promo-box center-block">
+              <img src="assets/img/products/composition-2.jpg" class="img-responsive product-item-img" alt="product image">
               <div class="promo-box-content">
-                <div class="text-center mr-30">
+                <div class="text-center center-block">
                   <h3 class="mb-15 light">new<br>sizes!</h3>
                   <a href="#" class="btn btn-primary">details <span class="ti-angle-right"></span></a>
                 </div>
@@ -159,11 +158,11 @@
       <!-- End Loading animation -->
 
       <!-- PRODUCT SINGLE -->
-      <div class="col-md-3 col-sm-6" *ngFor="let listing of featured_listings" (click)="onProductClick( listing )">
+      <div class="col-md-3 col-sm-3 center-block" *ngFor="let listing of featured_listings" (click)="onProductClick( listing )">
         <div class="product-item">
           <div class="product-item-thumbnail text-center mb-15">
             <a class="product-item-thumbnail-link"></a>
-            <img src="{{listing.big_image_url}} || assets/img/products/product-01.jpg" class="img-responsive center-cropped" alt="product image">
+            <img src="{{listing.big_image_url}} || assets/img/products/product-01.jpg" class="img-responsive center-cropped product-item-img" alt="product image">
             <div class="product-item-thumbnail-overlay">
               <a class="btn btn-primary">View Product</a>
             </div>
@@ -193,7 +192,7 @@
             <div class="promo-box">
               <img src="assets/img/products/composition-3.jpg" class="img-responsive" alt="product image">
               <div class="promo-box-content">
-                <div class="text-center mr-30">
+                <div class="text-center center-block">
                   <h3 class="mb-15 light">Juice</h3>
                   <a class="btn btn-primary" (click)="onDepartmentClick( 'E-Liquid' )">View <span class="ti-angle-right"></span></a>
                 </div>
@@ -209,7 +208,7 @@
             <div class="promo-box">
               <img src="assets/img/products/composition-4.png" class="img-responsive" alt="product image">
               <div class="promo-box-content">
-                <div class="text-center mr-30">
+                <div class="text-center center-block">
                   <h3 class="mb-15 light">Hardware</h3>
                   <a class="btn btn-primary" (click)="onDepartmentClick( 'E-Liquid' )">View <span class="ti-angle-right"></span></a>
                 </div>
