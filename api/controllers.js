@@ -97,21 +97,70 @@ exports.getCustomers = function(req, res) {
 /* Send email route */
 exports.sendEmail = function(req, res) {
 
-    var data = {
-      from: req.body.from,
-      to: req.body.to,
-      subject: req.body.subject,
-      text: req.body.body
-    };
+  var data = {
+    from: req.body.from,
+    to: req.body.to,
+    subject: req.body.subject,
+    text: req.body.body
+  };
 
-    mailgun.messages().send(data, function(error, body) {
-        if( error ){
-            console.log( error );
-            res.status( 500 ).send({error: error});
-        }
-        else{
-          res.send( req.body );
-      }
-
+  mailgun.messages().send(data, function(error, body) {
+    if (error) {
+      console.log(error);
+      res.status(500).send({
+        error: error
       });
+    } else {
+      res.send(req.body);
+    }
+
+  });
+}
+
+exports.getAuthKey = function() {
+
+  //oauth authorization request url
+  var bindoOAuthUrl = process.env.BINDO_URL + '/oauth/authorize';
+
+  //oauth authorization request body
+  var authRequestBody = {
+    username: process.env.BINDO_USERNAME,
+    password: process.env.BINDO_PASSWORD,
+    grant_type: "password",
+    client_id: process.env.BINDO_CLIENT_ID,
+    client_secret: process.env.BINDO_CLIENT_SECRET
+  };
+
+  request.post({
+    headers: {
+      'content-type': 'application/json',
+      'accept': 'application/vnd.bindo-v201501+json'
+    },
+    url: bindoOAuthUrl,
+    body: JSON.stringify(authRequestBody)
+  }, function(error, res, body) {
+    if (error) {
+      console.log(error);
+    } else {
+      var resp_data = JSON.parse(res.body)
+      process.env.BINDO_ACCESS_TOKEN = resp_data.data.access_token;
+    }
+  });
+}
+
+exports.checkAuthorizationKey = function() {
+  console.log("checking auth");
+  request.head({
+    headers: {
+      'content-type': 'application/json',
+      'accept': 'application/vnd.bindo-v201501+json'
+    },
+    url: 'https://api2.bindo.com/stores/d93/listings'
+  }, function(error, res, body) {
+    console.log(res.statusCode);
+    if (res.statusCode == 401) {
+      console.log("got error");
+      exports.getAuthKey();
+    }
+  });
 }
