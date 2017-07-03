@@ -97,6 +97,7 @@ export class DepartmentViewComponent implements OnInit, OnDestroy {
         this.currentNumItems = listings.data.listings.length;
       },
       (error) => {
+        this.loading = false;
         const newLink = ['404'];
         this.router.navigate(newLink);
       }

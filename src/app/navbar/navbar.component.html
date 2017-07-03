@@ -5,28 +5,19 @@
         <div class="navbar-header text-center hoverable">
           <img src="assets/img/logo.png" alt="store logo" class="width-50 mt-30 mb-30" (click)="clickLogoLink()">
           <span class="navbar-header-title mb-0" (click)="clickLogoLink()">WHITE HORSE VAPOR
-                        <!--<span class="text-muted x-small">ecommerce theme</span>-->
           </span>
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    navigation <span class="ti-menu"></span>
-                    </button>
         </div>
 
-        <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
-
-          <ul class="navbar-user mb-30 pull-left width-100">
+        <div>
+          <ul class="navbar-laguages pt-30 mb-30">
+            <li class="navbar-link"><a (click)="clickLogoLink()">Home</a></li>
+            <li class="navbar-link"><a (click)="clickContactLink()">Contact</a></li>
+            <li class="navbar-link"><a (click)="clickAboutLink()">About</a></li>
           </ul>
 
           <ul class="nav navbar-nav nav navbar-nav side-nav text-center">
             <li *ngFor="let department of departments" class="active" (click)="clickLink(department.name)">
               <a>{{department.name}}</a>
-            </li>
-            <li class="active" (click)="clickAboutLink()">
-              <a>About</a>
-            </li>
-            <li class="active" (click)="clickContactLink()">
-              <a>Contact</a>
             </li>
           </ul>
         </div>
@@ -36,38 +27,38 @@
 </header>
 
 <nav class="navbar navbar-default navbar-fixed-top hidden-lg hidden-xl navbar-mobile">
-  <div class="navbar-header ml-15">
-    <span class="ti-menu info-box-icon mt-15 mr-10" (click)="toggleNavbar()"></span>
-  </div>
-  <div class="container">
-    <h4 class="navbar-title"><strong>White Horse Vapor</strong></h4>
+  <div class="navbar-header ml-15 hoverable">
+    <span class="ti-menu info-box-icon mt-15 mr-10" (click)="toggleNavbar()" *ngIf="navbarState=='out'"></span>
+    <span class="ti-close info-box-icon mt-15 mr-10" (click)="toggleNavbar()" *ngIf="navbarState=='in'"></span>
   </div>
 </nav>
 
 <nav class="navbar navbar-default hidden-lg hidden-xl navbar-mobile invisible">
-  <div class="navbar-header ml-15 hoverable">
+  <div class="navbar-header ml-15 hoverable" *ngIf="navbarState">
     <span class="ti-menu info-box-icon mt-15 mr-10" (click)="toggleNavbar()"></span>
-  </div>
-  <div class="container">
-    <h4 class="navbar-title"><strong>White Horse Vapor</strong></h4>
   </div>
 </nav>
 
 
-<div class="navbar-container slide-navbar container-fluid hidden-lg hidden-xl" [@slideInOut]="navbarState">
+<header class="navbar navbar-container mb-0 hidden-lg hidden-xl slide-navbar" [@slideInOut]="navbarState">
   <div class="container-fluid">
-    <ul class="navbar-user mb-30 pull-left width-100">
-    </ul>
+    <nav class="navbar-default sidebar pb-30">
+      <div class="container-fluid">
 
-    <ul class="nav navbar-nav nav navbar-nav side-nav text-center">
-      <li *ngFor="let department of departments" class="active active-link" (click)="clickLink(department.name)">
-        <a>{{department.name}}</a>
-      </li>
-      <li class="active active-link" (click)="clickAboutLink()">
-        <a>About</a>
-      </li>
-      <li class="active active-link" (click)="clickContactLink()">
-        <a>Contact</a>
-      </li>
-    </ul>
+        <div>
+          <ul class="navbar-laguages pt-30 mb-30">
+            <li class="navbar-link"><a (click)="clickLogoLink()">Home</a></li>
+            <li class="navbar-link"><a (click)="clickContactLink()">Contact</a></li>
+            <li class="navbar-link"><a (click)="clickAboutLink()">About</a></li>
+          </ul>
+
+          <ul class="nav navbar-nav nav navbar-nav side-nav text-center">
+            <li *ngFor="let department of departments" class="active" (click)="clickLink(department.name)">
+              <a>{{department.name}}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
   </div>
+</header>

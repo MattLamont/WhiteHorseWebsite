@@ -4,7 +4,6 @@
     height: 100%;
     position: fixed;
     z-index: 9999;
-    margin-top: 55px;
     background-color: rgb( 255 , 255 , 255 );
 }
 
@@ -17,4 +16,8 @@
     margin-top: 20px;
     margin-bottom: 20px;
     font-size: 2vw;
+}
+
+.navbar{
+    margin-bottom: 0px;
 }
