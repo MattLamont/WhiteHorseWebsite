@@ -149,7 +149,7 @@ exports.getAuthKey = function() {
 }
 
 exports.checkAuthorizationKey = function() {
-  console.log("checking auth");
+
   request.head({
     headers: {
       'content-type': 'application/json',
@@ -157,9 +157,8 @@ exports.checkAuthorizationKey = function() {
     },
     url: 'https://api2.bindo.com/stores/d93/listings'
   }, function(error, res, body) {
-    console.log(res.statusCode);
+
     if (res.statusCode == 401) {
-      console.log("got error");
       exports.getAuthKey();
     }
   });
