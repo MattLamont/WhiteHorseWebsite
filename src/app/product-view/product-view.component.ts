@@ -5,6 +5,7 @@ import {BindoApiService} from '../bindo-api.service';
 import {Email} from '../models/email';
 import { AlertModule } from 'ngx-bootstrap';
 import {SharedDataService} from '../shared-data.service';
+import { environment } from 'environments/environment';
 
 import {Listing} from '../models/listing';
 
@@ -100,9 +101,9 @@ export class ProductViewComponent implements OnInit {
       this.text;
 
     this.email = new Email(
-      'product.inquiry@whitehorsevapor.com',
-      'matthewlamont454@gmail.com',
-      this.subject,
+      'product.inquiry@whvapor.com',
+      environment.contactEmail,
+      'Product Inquiry',
       body);
 
     this.email_sent = true;

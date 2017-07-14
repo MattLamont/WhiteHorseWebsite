@@ -33,18 +33,6 @@ export class SharedDataService {
             'paging': {}
         },
         {
-            'name': 'Apparel',
-            'id': 168157,
-            'results': [],
-            'paging': {}
-        },
-        {
-            'name': 'Drink',
-            'id': 168160,
-            'results': [],
-            'paging': {}
-        },
-        {
             'name': 'White Horse Product',
             'id': 168163,
             'results': [],
