@@ -50,4 +50,9 @@ export class HomepageViewComponent implements OnInit {
     this.router.navigate(newLink);
   }
 
+  onLinkClick( name ){
+      const newLink = [name];
+      this.router.navigate(newLink);
+  }
+
 }

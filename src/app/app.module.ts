@@ -24,6 +24,8 @@ import { AlertModule } from 'ngx-bootstrap';
 import { PaginationModule } from 'ngx-bootstrap';
 import { CarouselModule } from 'ngx-bootstrap';
 import { NotFoundViewComponent } from './not-found-view/not-found-view.component';
+import { BlogListingViewComponent } from './blog-listing-view/blog-listing-view.component';
+import { BlogViewComponent } from './blog-view/blog-view.component';
 
 const GOOGLE_MAPS_API_KEY = environment.googleMapsApiKey;
 
@@ -37,7 +39,9 @@ const GOOGLE_MAPS_API_KEY = environment.googleMapsApiKey;
     FooterComponent,
     AboutViewComponent,
     ContactViewComponent,
-    NotFoundViewComponent
+    NotFoundViewComponent,
+    BlogListingViewComponent,
+    BlogViewComponent
   ],
   imports: [
     BrowserModule,
