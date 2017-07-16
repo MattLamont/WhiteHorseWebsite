@@ -23,6 +23,7 @@
             <li> <a (click)="onPageLinkClick('/home')"> Home </a> </li>
             <li> <a (click)="onPageLinkClick('/about')"> About </a> </li>
             <li> <a (click)="onPageLinkClick('/contact')"> Contact </a> </li>
+            <li> <a (click)="onPageLinkClick('/blog')"> Blog </a> </li>
           </ul>
         </div>
 
@@ -45,18 +46,22 @@
             <fieldset>
               <div class="form-group">
                 <div class="footer-newsletter">
-                  <input class="form-control" id="firstName" placeholder="your e-mail" type="text">
-                  <button class="btn btn-link" type="button"><span class="ti-plus"></span></button>
+                  <input type="email" class="form-control" required [(ngModel)]="email_address" name="email" placeholder="your email">
+                  <button class="btn btn-link" type="button" (click)="sendEmail()"><span class="ti-plus"></span></button>
                 </div>
               </div>
             </fieldset>
           </form>
 
+          <div *ngIf="alert_message" class="mt-20">
+            <alert [type]="alert_type"><span [innerHtml]="alert_message"></span></alert>
+          </div>
+
           <ul class="footer-social" data-wow-delay="0.6s">
-            <li><a href="#" class="pull-left"><span class="ti-facebook"></span></a></li>
-            <li><a href="#" class="pull-left"><span class="ti-twitter"></span></a></li>
-            <li><a href="#" class="pull-left"><span class="ti-instagram"></span></a></li>
-            <li><a href="#" class="pull-left"><span class="ti-youtube"></span></a></li>
+            <li><a href="https://www.facebook.com/whdenver/" class="pull-left"><span class="ti-facebook"></span></a></li>
+            <li><a href="https://twitter.com/WhvaporDenver" class="pull-left"><span class="ti-twitter"></span></a></li>
+            <li><a href="https://www.instagram.com/whitehorsevapordenver/" class="pull-left"><span class="ti-instagram"></span></a></li>
+            <li><a href="https://www.youtube.com/channel/UCfDDtMxJn3u7VRBaAfyWkjw" class="pull-left"><span class="ti-youtube"></span></a></li>
           </ul>
         </div>
       </div>
@@ -65,7 +70,7 @@
 
   <div class="footer-bottom">
     <div class="container">
-      <p class="pull-left"> Copyright © White Horse Vapor 2017. All right reserved. </p>
+      <p class="pull-left"> Copyright © White Horse Vapor Denver 2017. All right reserved. </p>
     </div>
   </div>
 </footer>

@@ -4,6 +4,7 @@ import {Email} from '../models/email';
 import { AlertModule } from 'ngx-bootstrap';
 import {ActivatedRoute} from '@angular/router';
 import { Title } from '@angular/platform-browser';
+import { environment } from 'environments/environment';
 
 @Component({
   selector: 'app-contact-view',
@@ -77,8 +78,8 @@ export class ContactViewComponent implements OnInit {
       this.message;
 
     this.email = new Email(
-      'contact@whitehorsevapor.com',
-      'matthewlamont454@gmail.com',
+      'contact@whvapor.com',
+      environment.contactEmail,
       this.subject,
       body);
 

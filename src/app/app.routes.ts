@@ -6,6 +6,10 @@ import { DepartmentViewComponent } from './department-view/department-view.compo
 import { AboutViewComponent } from './about-view/about-view.component';
 import { ContactViewComponent } from './contact-view/contact-view.component';
 import { NotFoundViewComponent } from './not-found-view/not-found-view.component';
+import { BlogListingViewComponent } from './blog-listing-view/blog-listing-view.component';
+import { BlogViewComponent } from './blog-view/blog-view.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { AdminViewComponent } from './admin-view/admin-view.component';
 
 // Route Configuration
 export const routes: Routes = [
@@ -18,6 +22,10 @@ export const routes: Routes = [
   { path: 'home', component: HomepageViewComponent },
   { path: 'about', component: AboutViewComponent },
   { path: 'contact', component: ContactViewComponent },
+  { path: 'blog' , component: BlogListingViewComponent},
+  { path: 'blog/:id' , component: BlogViewComponent},
+  { path: 'admin/login' , component: AdminLoginComponent},
+  { path: 'admin/dashboard' , component: AdminViewComponent},
 
   { path: 'department/:name', component: DepartmentViewComponent },
   { path: 'product/:id', component: ProductViewComponent },
