@@ -53,6 +53,20 @@ export class BindoApiService {
       .catch(this.handleError);
   }
 
+  public authAdmin( email: string , password: string ): Observable<any> {
+      const json = {
+        'email' : email,
+        'password' : password
+      };
+
+      return this.http
+        .post(BINDO_API_URL + '/admin/login', json)
+        .map(response => {
+          return response.json();
+        })
+        .catch(this.handleError);
+  }
+
   private handleError(error: Response | any) {
     console.error(error);
     return Observable.throw(error);
