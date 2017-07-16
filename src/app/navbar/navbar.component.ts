@@ -58,6 +58,12 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(newLink);
   }
 
+  clickBlogLink() {
+    this.toggleNavbar();
+    const newLink = ['/blog'];
+    this.router.navigate(newLink);
+  }
+
   clickLogoLink() {
     this.toggleNavbar();
     const newLink = ['/home'];
