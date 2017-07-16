@@ -6,7 +6,7 @@
 export const environment = {
   production: false,
 
-  bindoApiUrl: 'http://whvapor.com',
+  bindoApiUrl: 'https://whvapor.com',
   contactEmail: 'matthewlamont454@gmail.com',
   googleMapsApiKey: 'AIzaSyAygK8MzLci1lhhWGjNaIk64xBYZD6mZdI'
 };
