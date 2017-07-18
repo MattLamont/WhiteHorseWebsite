@@ -1,6 +1,7 @@
 .product-image{
     margin: 0 auto;
     min-width: 75%;
+    max-height: 355px;
 }
 
 .info-box{
