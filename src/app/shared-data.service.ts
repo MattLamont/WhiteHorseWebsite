@@ -52,6 +52,9 @@ export class SharedDataService {
         }
     ];
 
+    public new_listings: Object;
+    public featured_listings: Object;
+
   constructor() { }
 
 }
