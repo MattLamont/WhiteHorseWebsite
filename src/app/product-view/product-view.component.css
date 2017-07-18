@@ -1,6 +1,7 @@
 .product-image{
     margin: 0 auto;
-    min-width: 75%;
+    height: 355px;
+    border-radius: 5px;
 }
 
 .info-box{
