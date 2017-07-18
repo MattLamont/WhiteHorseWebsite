@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import {BindoApiService} from '../bindo-api.service';
 import { PaginationModule } from 'ngx-bootstrap';
 import {SharedDataService} from '../shared-data.service';
-import { Title } from '@angular/platform-browser';
+import { Title, Meta} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-department-view',
@@ -13,6 +13,8 @@ import { Title } from '@angular/platform-browser';
   providers: [BindoApiService]
 })
 export class DepartmentViewComponent implements OnInit, OnDestroy {
+
+  private metaDefinition = 'White Horse Vapor Denver offers a variety of vaping products including Hardware, E-Liquid, Accessories, and much more.';
 
   private sub: any;
   public department: string;
@@ -31,7 +33,7 @@ export class DepartmentViewComponent implements OnInit, OnDestroy {
 
   constructor(private route: ActivatedRoute, private router: Router,
     private bindoApiService: BindoApiService, private sharedDataService: SharedDataService,
-    private titleService: Title) {
+    private titleService: Title, private metaService: Meta) {
   }
 
   ngOnInit() {
@@ -40,7 +42,8 @@ export class DepartmentViewComponent implements OnInit, OnDestroy {
       this.department = params['name'];
 
       //set HTML title tag for SEO
-      this.titleService.setTitle( this.department );
+      this.titleService.setTitle(this.department + ' | White Horse Vapor Denver' );
+      //this.metaService.addTag({ name: 'description', content: this.metaDefinition });
 
       // try to find the current department in the array of departments stored in shared data service
       const department_info: any = this.sharedDataService.departments.find(this.findDepartment, this);

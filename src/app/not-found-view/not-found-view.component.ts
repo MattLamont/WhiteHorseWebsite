@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , OnDestroy } from '@angular/core';
+import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-not-found-view',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotFoundViewComponent implements OnInit {
 
-  constructor() { }
+  constructor(private titleService: Title, private metaService: Meta) { }
 
   ngOnInit() {
+    //set HTML title tag for SEO
+    this.titleService.setTitle('404 | White Horse Vapor Denver');
+    //this.metaService.addTag({ name: 'robots', content: 'noindex' });
+  }
+
+  ngOnDestroy(){
   }
 
 }

@@ -3,7 +3,7 @@ import {BindoApiService} from '../bindo-api.service';
 import {Email} from '../models/email';
 import { AlertModule } from 'ngx-bootstrap';
 import {ActivatedRoute} from '@angular/router';
-import { Title } from '@angular/platform-browser';
+import { Title, Meta } from '@angular/platform-browser';
 import { environment } from 'environments/environment';
 
 @Component({
@@ -14,6 +14,8 @@ import { environment } from 'environments/environment';
 })
 
 export class ContactViewComponent implements OnInit {
+
+  private metaDefinition = 'White Horse Vapor Denver offers a variety of vaping products including Hardware, E-Liquid, Accessories, and much more.';
 
   public email: Email;
 
@@ -33,12 +35,13 @@ export class ContactViewComponent implements OnInit {
   public zoom = 14;
 
   constructor(private route: ActivatedRoute, private bindoApiService: BindoApiService,
-              private titleService: Title) { }
+    private titleService: Title, private metaService: Meta) { }
 
   ngOnInit() {
 
-      //set HTML title tag for SEO
-      this.titleService.setTitle( 'Contact' );
+    //set HTML title tag for SEO
+    this.titleService.setTitle('Contact | White Horse Vapor Denver');
+    //this.metaService.addTag({ name: 'description', content: this.metaDefinition });
 
   }
 

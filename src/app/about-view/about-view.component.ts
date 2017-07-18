@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { Component, OnInit , OnDestroy } from '@angular/core';
+import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-about-view',
@@ -8,11 +8,17 @@ import { Title } from '@angular/platform-browser';
 })
 export class AboutViewComponent implements OnInit {
 
-  constructor( private titleService: Title) { }
+  private metaDefinition = 'White Horse Vapor Denver offers a variety of vaping products including Hardware, E-Liquid, Accessories, and much.';
+
+  constructor(private titleService: Title, private metaService: Meta) { }
 
   ngOnInit() {
-      //set HTML title tag for SEO
-      this.titleService.setTitle( 'About' );
+    //set HTML title tag for SEO
+    this.titleService.setTitle('About | White Horse Vapor Denver');
+    //this.metaService.addTag({ name: 'description', content: this.metaDefinition });
+  }
+
+  ngOnDestroy() {
   }
 
 }

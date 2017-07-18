@@ -6,6 +6,7 @@ import {Email} from '../models/email';
 import { AlertModule } from 'ngx-bootstrap';
 import {SharedDataService} from '../shared-data.service';
 import { environment } from 'environments/environment';
+import { Title, Meta } from '@angular/platform-browser';
 
 import {Listing} from '../models/listing';
 
@@ -16,6 +17,8 @@ import {Listing} from '../models/listing';
   providers: [BindoApiService]
 })
 export class ProductViewComponent implements OnInit {
+
+  private metaDefinition = 'White Horse Vapor Denver offers a variety of vaping products including Hardware, E-Liquid, Accessories, and much more.';
 
   private sub: any;
   private product_id: string;
@@ -35,10 +38,13 @@ export class ProductViewComponent implements OnInit {
   public loading = false;
 
   constructor(private route: ActivatedRoute, private router: Router,
-    private bindoApiService: BindoApiService, private sharedDataService: SharedDataService) {
+    private bindoApiService: BindoApiService, private sharedDataService: SharedDataService,
+    private titleService: Title, private metaService: Meta) {
   }
 
   ngOnInit() {
+
+    //this.metaService.addTag({ name: 'description', content: this.metaDefinition });
 
     // Subscribe to route params
     this.sub = this.route.params.subscribe(params => {
@@ -46,6 +52,7 @@ export class ProductViewComponent implements OnInit {
 
       if (this.sharedDataService.product) {
         this.listing = this.sharedDataService.product;
+        this.titleService.setTitle(this.listing.name + ' | White Horse Vapor Denver');
       } else {
         this.loading = true;
         const url_params = '/' + this.product_id;
@@ -56,13 +63,14 @@ export class ProductViewComponent implements OnInit {
           (listing) => {
             this.loading = false;
             this.listing = listing.data.listing;
+            this.titleService.setTitle(this.listing.name + ' | White Horse Vapor Denver');
           },
           err => {
             console.log(err);
             const newLink = ['404'];
             this.router.navigate(newLink);
           }
-      );
+          );
       }
 
     });
