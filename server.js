@@ -11,6 +11,9 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
+//Setup Prerender.io to automatically serve cached pages of html for SEO
+app.use( require( 'prerender-node').set('prerenderToken' , process.env.PRERENDER_TOKEN ));
+
 //Allows Angular App to access API if the app is run with 'ng-serve'
 app.use(function(req, res, next) {
 
