@@ -88,12 +88,19 @@ export class ContactViewComponent implements OnInit {
 
     this.email_sent = true;
 
+    this.alert_type = 'success';
+    this.alert_message = 'Sending message...';
+
     this.bindoApiService
       .postEmail(this.email)
       .subscribe(
       (res) => {
         this.alert_type = 'success';
-        this.alert_message = 'Email successfully sent';
+        this.alert_message = 'Message successfully sent';
+      },
+      (error) => {
+        this.alert_type = 'danger';
+        this.alert_message = 'Message failed. Please send email to whdenver@vapewh.com';
       }
       );
   }
