@@ -33,7 +33,7 @@ export class SharedDataService {
             'paging': {}
         },
         {
-            'name': 'White Horse Product',
+            'name': 'Disposable and Pod Systems',
             'id': 168163,
             'results': [],
             'paging': {}
