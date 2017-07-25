@@ -14,7 +14,7 @@ import {Email} from '../models/email';
 export class FooterComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private router: Router,
-              private bindoApiService: BindoApiService) { }
+    private bindoApiService: BindoApiService) { }
 
   public email: Email;
 
@@ -29,7 +29,7 @@ export class FooterComponent implements OnInit {
 
   sendEmail() {
 
-      console.log( this.email_address );
+    console.log(this.email_address);
 
     if (this.email_sent === true) {
       this.alert_message = 'Email has already been sent';
@@ -51,6 +51,9 @@ export class FooterComponent implements OnInit {
       'New User for Email List',
       body);
 
+    this.alert_type = 'success';
+    this.alert_message = 'Sending message...';
+
     this.email_sent = true;
 
     this.bindoApiService
@@ -58,18 +61,22 @@ export class FooterComponent implements OnInit {
       .subscribe(
       (res) => {
         this.alert_type = 'success';
-        this.alert_message = 'Email successfully sent';
+        this.alert_message = 'Message successfully sent';
+      },
+      (error) => {
+        this.alert_type = 'danger';
+        this.alert_message = 'Message failed. Please send email to whdenver@vapewh.com';
       }
       );
   }
 
-  onDepartmentClick( name ) {
+  onDepartmentClick(name) {
     const newLink = ['/department', name];
     this.router.navigate(newLink);
   }
 
-  onPageLinkClick( name ) {
-    const newLink = [ name ];
+  onPageLinkClick(name) {
+    const newLink = [name];
     this.router.navigate(newLink);
   }
 
