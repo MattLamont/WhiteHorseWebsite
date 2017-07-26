@@ -1,4 +1,5 @@
 var request = require('request');
+var knex = require('../db/db.js');
 
 var mailgun = require('mailgun-js')({
   apiKey: process.env.MAILGUN_API_KEY,
@@ -162,4 +163,17 @@ exports.checkAuthorizationKey = function() {
       exports.getAuthKey();
     }
   });
+}
+
+exports.getAllBlogPosts = function( req , res){
+    knex('posts').select().then(function(data){
+        res.json( data );
+    });
+}
+
+exports.getBlogPost = function( req , res){
+    knex.from( 'posts' ).where('id' , req.params.id )
+    .then( function( post ){
+        res.json( post );
+    })
 }
