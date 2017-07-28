@@ -36,6 +36,7 @@
     "knex": "^0.13.0",
     "mailgun-js": "^0.11.2",
     "ng-bootstrap": "^1.6.3",
+    "ng2-ckeditor": "^1.1.9",
     "ng2-page-transition": "^1.1.0",
     "ngx-bootstrap": "^1.7.1",
     "node-schedule": "^1.2.3",

@@ -3,7 +3,7 @@ var knex = require('../db/db.js');
 
 exports.adminLogin = function( req , res ){
     knex.from('users').where( 'username' , req.body.username ).then( function( data ){
-        res.json( data[0] );
+        res.send( data[0] );
     });
 }
 

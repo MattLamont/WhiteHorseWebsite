@@ -9,7 +9,6 @@ import { NotFoundViewComponent } from './not-found-view/not-found-view.component
 import { BlogListingViewComponent } from './blog-listing-view/blog-listing-view.component';
 import { BlogViewComponent } from './blog-view/blog-view.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
-import { AdminViewComponent } from './admin-view/admin-view.component';
 
 // Route Configuration
 export const routes: Routes = [
@@ -22,15 +21,16 @@ export const routes: Routes = [
   { path: 'home', component: HomepageViewComponent },
   { path: 'about', component: AboutViewComponent },
   { path: 'contact', component: ContactViewComponent },
-  { path: 'blog' , component: BlogListingViewComponent},
-  { path: 'blog/:id' , component: BlogViewComponent},
-  { path: 'admin/login' , component: AdminLoginComponent},
-  { path: 'admin/dashboard' , component: AdminViewComponent},
+  { path: 'blog', component: BlogListingViewComponent },
+  { path: 'blog/:id', component: BlogViewComponent },
+
+  //{ path: 'admin/login', component: AdminLoginComponent },
+  { path: 'admin/login', loadChildren: './admin-dashboard/admin-dashboard.module#AdminDashboardModule' },
 
   { path: 'department/:name', component: DepartmentViewComponent },
   { path: 'product/:id', component: ProductViewComponent },
 
-  { path: '404' , component: NotFoundViewComponent },
+  { path: '404', component: NotFoundViewComponent },
   { path: '**', component: NotFoundViewComponent }
 ];
 
