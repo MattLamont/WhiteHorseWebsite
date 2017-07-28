@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { BindoApiService } from './bindo-api.service';
 import {SharedDataService} from './shared-data.service';
+import { AdminService } from './admin.service';
 import { HomepageViewComponent } from './homepage-view/homepage-view.component';
 import { ProductViewComponent } from './product-view/product-view.component';
 
@@ -27,7 +28,7 @@ import { NotFoundViewComponent } from './not-found-view/not-found-view.component
 import { BlogListingViewComponent } from './blog-listing-view/blog-listing-view.component';
 import { BlogViewComponent } from './blog-view/blog-view.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
-import { AdminViewComponent } from './admin-view/admin-view.component';
+//import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
 const GOOGLE_MAPS_API_KEY = environment.googleMapsApiKey;
 
@@ -44,8 +45,8 @@ const GOOGLE_MAPS_API_KEY = environment.googleMapsApiKey;
     NotFoundViewComponent,
     BlogListingViewComponent,
     BlogViewComponent,
-    AdminLoginComponent,
-    AdminViewComponent
+    AdminLoginComponent
+    //AdminDashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +63,8 @@ const GOOGLE_MAPS_API_KEY = environment.googleMapsApiKey;
   ],
   providers: [
       BindoApiService,
-      SharedDataService
+      SharedDataService,
+      AdminService
   ],
   bootstrap: [AppComponent]
 })

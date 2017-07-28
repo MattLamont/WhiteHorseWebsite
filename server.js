@@ -2,13 +2,27 @@ var express = require('express');
 var request = require('request');
 var path = require('path');
 var controllers = require("./api/controllers.js");
-var admin = require( './api/admin.js');
+var admin = require('./api/admin.js');
 var app = express();
 var bodyParser = require('body-parser');
 var schedule = require('node-schedule');
+var knex = require('./db/db.js');
+var passport = require('passport');
+require('./config/passport')(passport);
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true
+}));
+
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use(require('express-session')({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: false
 }));
 
 //Allows Angular App to access API if the app is run with 'ng-serve'
@@ -46,11 +60,32 @@ app.get('/departments', controllers.getDepartments);
 
 app.get('/customers', controllers.getCustomers);
 
+app.get('/blog/:id', controllers.getBlogPost);
+
+app.get('/blogs', controllers.getAllBlogPosts);
+
 /*
  *  API Private Routes
  */
-app.get('/admin/bindo/auth', admin.getBindoAuthKey );
+app.post('/admin/login', passport.authenticate('local', {failureRedirect: '/admin/login/fail'}), admin.adminLogin);
 
+app.get( '/admin/login/fail' , admin.failLogin );
+
+app.get('/admin/bindo/auth', passport.authenticate('bearer', {
+  session: false
+}), admin.getBindoAuthKey);
+
+app.post('/admin/blog', passport.authenticate('bearer', {
+  session: false
+}), admin.createBlogPost);
+
+app.put('/admin/blog/:id', passport.authenticate('bearer', {
+  session: false
+}), admin.updateBlogPost);
+
+app.delete('/admin/blog/:id', passport.authenticate('bearer', {
+  session: false
+}), admin.deleteBlogPost);
 /*
  *  Static HTML Routes
  */
@@ -73,8 +108,8 @@ var j = schedule.scheduleJob('30 * * * * *', function(){
 */
 
 //if this is not production, skip getting the auth key from bindo.
-if( process.env.NODE_ENV ){
-    controllers.getAuthKey();
+if (process.env.NODE_ENV) {
+  controllers.getAuthKey();
 }
 
 if (!process.env.PORT) {
@@ -82,5 +117,5 @@ if (!process.env.PORT) {
 }
 
 app.listen(process.env.PORT);
-console.log( "Node evironment set to: " + (process.env.NODE_ENV || 'development' ));
+console.log("Node evironment set to: " + (process.env.NODE_ENV || 'development'));
 console.log("Server started. Listening on port " + process.env.PORT);
