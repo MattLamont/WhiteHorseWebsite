@@ -1,8 +1,10 @@
-import { NgModule , Component, EventEmitter, Output, Input , OnInit , OnDestroy } from '@angular/core';
+import { NgModule , Component, EventEmitter, Output, Input , OnInit , OnDestroy , ViewChild , AfterViewInit } from '@angular/core';
 import { ActivatedRoute, Router} from '@angular/router';
 
 import { BindoApiService } from './bindo-api.service';
 import { SharedDataService } from './shared-data.service';
+
+import { ModalDirective } from 'ngx-bootstrap/modal/modal.component';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +16,9 @@ import { SharedDataService } from './shared-data.service';
 
 export class AppComponent implements OnInit {
 
+  @ViewChild(ModalDirective) public staticModal: ModalDirective;
 
+public ageVerified = false;
 
   constructor( private route: ActivatedRoute, private router: Router,
                private bindoApiService: BindoApiService , private sharedDataService: SharedDataService ) {
@@ -35,7 +39,12 @@ export class AppComponent implements OnInit {
               element.paging = listings.paging;
             });
       } );
+  }
 
+  ngAfterViewInit() {
+    if( !this.ageVerified ){
+      this.staticModal.show();
+    }
   }
 
 }
