@@ -13,9 +13,8 @@ export class BlogListingViewComponent implements OnInit {
   constructor(private titleService: Title, private metaService: Meta) { }
 
   ngOnInit() {
-    //set HTML title tag for SEO
     this.titleService.setTitle('Blog | White Horse Vapor Denver');
-    //this.metaService.addTag({ name: 'description', content: this.metaDefinition });
+    
   }
 
 }
