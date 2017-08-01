@@ -35,7 +35,7 @@ app.use(function(req, res, next) {
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
 
   // Request headers you wish to allow
-  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type,Authorization');
 
   // Set to true if you need the website to include cookies in the requests sent
   // to the API (e.g. in case you use sessions)
@@ -67,6 +67,8 @@ app.get('/blogs', controllers.getAllBlogPosts);
 /*
  *  API Private Routes
  */
+app.post('/admin/blog/image', passport.authenticate('bearer', {session: false}), admin.upload.single('image'), admin.createBlogImage);
+
 app.post('/admin/login', passport.authenticate('local', {failureRedirect: '/admin/login/fail'}), admin.adminLogin);
 
 app.get( '/admin/login/fail' , admin.failLogin );
@@ -100,7 +102,6 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
 
-
 /*
 var j = schedule.scheduleJob('30 * * * * *', function(){
   controllers.checkAuthorizationKey();
@@ -113,7 +114,7 @@ if (process.env.NODE_ENV) {
 }
 
 if (!process.env.PORT) {
-  process.env.PORT = 3032;
+  process.env.PORT = 3033;
 }
 
 app.listen(process.env.PORT);

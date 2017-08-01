@@ -13,8 +13,8 @@ exports.up = function(knex, Promise) {
 
         knex.schema.createTable('posts', function(table){
             table.increments('id').primary();
-            table.string('title').notNullable();
-            table.string('body').notNullable();
+            table.text('title').notNullable();
+            table.text('body').notNullable();
             table.string('author').notNullable();
             table.string('image_url');
             table.timestamp('created_at').defaultTo(knex.fn.now());
