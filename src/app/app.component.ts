@@ -3,13 +3,15 @@ import { ActivatedRoute, Router} from '@angular/router';
 
 import { BindoApiService } from './bindo-api.service';
 import { SharedDataService } from './shared-data.service';
+import { BlogService } from './blog.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   providers: [BindoApiService,
-              SharedDataService]
+              SharedDataService,
+              BlogService]
 })
 
 export class AppComponent implements OnInit {

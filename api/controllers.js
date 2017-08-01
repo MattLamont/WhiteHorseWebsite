@@ -166,7 +166,7 @@ exports.checkAuthorizationKey = function() {
 }
 
 exports.getAllBlogPosts = function( req , res){
-    knex('posts').select().then(function(data){
+    knex('blog').select().then(function(data){
         res.json( data );
     });
 }

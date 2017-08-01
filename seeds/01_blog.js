@@ -1,5 +1,5 @@
 exports.seed = function(knex, Promise) {
-  return knex.raw('delete from "blog"; alter sequence blog_id_seq restart with 3')
+  return knex.raw('delete from "posts"; alter sequence blog_id_seq restart with 3')
     .then(function () {
       const blogs = [{
         id: 1,
@@ -14,6 +14,6 @@ exports.seed = function(knex, Promise) {
         author: 'Matt',
         image_url: 'http://media.gq.com/photos/58ee3fad8d87a531f333af00/16:9/pass/vape-god.jpg'
       }]
-      return knex('blog').insert(blogs);
+      return knex('posts').insert(blogs);
     });
 };
