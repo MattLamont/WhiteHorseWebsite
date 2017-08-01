@@ -19,9 +19,8 @@ export class BlogService {
   public getBlogs() {
 
     return this.http
-      .get('localhost:3032/blogs')
+      .get('http://www.whvapor.com/blogs')
       .map(response => {
-        console.log(response);
         return response.json();
       })
       .catch(this.handleError);
