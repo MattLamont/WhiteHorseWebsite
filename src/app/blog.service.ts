@@ -21,7 +21,7 @@ export class BlogService {
   public getBlogs() {
 
     return this.http
-      .get('http://www.whvapor.com/blogs')
+      .get('http://www.whvapor.com/blog/posts')
       .map(response => {
         return response.json();
       })
