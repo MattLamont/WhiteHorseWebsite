@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { BindoApiService } from './bindo-api.service';
 import {SharedDataService} from './shared-data.service';
+import {BlogService} from './blog.service';
 import { HomepageViewComponent } from './homepage-view/homepage-view.component';
 import { ProductViewComponent } from './product-view/product-view.component';
 
@@ -62,6 +63,7 @@ const GOOGLE_MAPS_API_KEY = environment.googleMapsApiKey;
   providers: [
       BindoApiService,
       SharedDataService,
+      BlogService
   ],
   bootstrap: [AppComponent]
 })

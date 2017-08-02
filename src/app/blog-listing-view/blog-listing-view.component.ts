@@ -6,8 +6,7 @@ import { ActivatedRoute, Router} from '@angular/router';
 @Component({
   selector: 'app-blog-listing-view',
   templateUrl: './blog-listing-view.component.html',
-  styleUrls: ['./blog-listing-view.component.css'],
-  providers: [BlogService]
+  styleUrls: ['./blog-listing-view.component.css']
 })
 export class BlogListingViewComponent implements OnInit {
 
@@ -24,12 +23,19 @@ export class BlogListingViewComponent implements OnInit {
     .subscribe(
     (blogs) => {
       this.blogs = blogs
+      this.blogService.blogs = blogs;
+      console.log( this.blogService.blogs );
     },
     (error) => {
       const newLink = ['404'];
       this.router.navigate(newLink);
     }
     );
+  }
+
+  onBlogPostClick( id: number ){
+    const newLink = ['/blog' , id ];
+    this.router.navigate(newLink);
   }
 
 }
