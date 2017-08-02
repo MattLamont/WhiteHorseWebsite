@@ -6,6 +6,21 @@
 
     <router-outlet></router-outlet>
 
+    <div class="modal fade" bsModal #staticModal="bs-modal" [config]="{backdrop: 'static'}" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-body text-center">
+            <img src="assets/img/logo.png" class="width-50 mt-30 mb-30" />
+            <h2>Are you 18 years of age or older?</h2>
+            <div class="row mt-30">
+              <a (click)="staticModal.hide()" class="btn btn-primary">YES</a>
+              <a href="http://www.google.com" class="btn btn-primary">NO</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <app-footer></app-footer>
   </div>
 </div>

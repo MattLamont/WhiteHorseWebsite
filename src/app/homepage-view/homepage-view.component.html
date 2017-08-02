@@ -1,13 +1,13 @@
 <!-- HOME SLIDER -->
 <carousel class="hidden-sm hidden-xs">
   <slide>
-    <img class="img-responsive carousel-image" src="assets/img/slider/slide-01.jpg" alt="First slide">
+    <img class="img-responsive carousel-image" src="{{home_page_images[0].image_url}}" alt="First slide">
   </slide>
   <slide>
-    <img class="img-responsive carousel-image" src="assets/img/slider/slide-02.jpg" alt="Second slide">
+    <img class="img-responsive carousel-image" src="{{home_page_images[1].image_url}}" alt="Second slide">
   </slide>
   <slide>
-    <img class="img-responsive carousel-image" src="assets/img/slider/slide-03.jpg" alt="Third slide">
+    <img class="img-responsive carousel-image" src="{{home_page_images[2].image_url}}" alt="Third slide">
   </slide>
 </carousel>
 
@@ -104,7 +104,7 @@
         <div class="row">
           <div class="col-md-12 mb-30">
             <div class="promo-box center-block">
-              <img src="assets/img/products/composition-1.jpg" class="img-responsive product-item-img" alt="product image">
+              <img src="{{home_page_images[3].image_url}}" class="img-responsive product-item-img" alt="product image">
               <div class="promo-box-content">
                 <div class="text-center center-block">
                   <h3 class="mb-15 light">About Us</h3>
@@ -120,7 +120,7 @@
         <div class="row">
           <div class="col-md-12 mb-30">
             <div class="promo-box center-block">
-              <img src="assets/img/products/composition-2.jpg" class="img-responsive product-item-img" alt="product image">
+              <img src="{{home_page_images[4].image_url}}" class="img-responsive product-item-img" alt="product image">
               <div class="promo-box-content">
                 <div class="text-center center-block">
                   <h3 class="mb-15 light">Check out our Blog</h3>
@@ -181,7 +181,7 @@
         <div class="row">
           <div class="col-md-12 mb-30 hoverable" (click)="onDepartmentClick( 'E-Liquid' )">
             <div class="promo-box">
-              <img src="assets/img/products/composition-3.jpg" class="img-responsive" alt="product image">
+              <img src="{{home_page_images[5].image_url}}" class="img-responsive" alt="product image">
               <div class="promo-box-content">
                 <div class="text-center center-block">
                   <h3 class="mb-15 light">Juice</h3>
@@ -197,7 +197,7 @@
         <div class="row">
           <div class="col-md-12 mb-30 hoverable" (click)="onDepartmentClick( 'Hardware' )">
             <div class="promo-box">
-              <img src="assets/img/products/composition-4.png" class="img-responsive" alt="product image">
+              <img src="{{home_page_images[6].image_url}}" class="img-responsive" alt="product image">
               <div class="promo-box-content">
                 <div class="text-center center-block">
                   <h3 class="mb-15 light">Hardware</h3>
