@@ -1,13 +1,13 @@
-<div class="container-fluid">
+<div class="container-fluid" *ngIf="currentBlog">
   <div class="row">
     <div class="col-md-12">
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-12 mt-30 mb-30 width-100 pull-left">
-            <h3>Post Title <span class="text-muted small smartphone-inline-fw">22.10.2017</span>
-							</h3>
+            <h3>{{currentBlog.title}} <span class="text-muted small smartphone-inline-fw">{{currentBlog.created_at | date: 'MMM, dd yyyy'}}</span></h3>
+            <h4 class="text-muted">{{currentBlog.author}}</h4>
           </div>
-          <div class="col-md-9">
+          <div class="col-md-8">
             <!-- PROMO BOX LARGE -->
             <div class="container-fluid mt-0">
               <div class="row">
@@ -15,7 +15,7 @@
                   <div class="row">
                     <div class="col-md-12 no-padding">
                       <div class="promo-box">
-                        <img src="assets/img/products/composition-3.jpg" class="img-responsive width-100" alt="product image">
+                        <img src="{{currentBlog.image_url}}" class="img-responsive width-100" alt="product image">
                       </div>
                     </div>
                   </div>
@@ -26,93 +26,24 @@
 
             <!-- TEXT CONTAINER -->
             <div class="text-container">
-              <p class="large mt-30">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </p>
-              <p class="mt-30 mb-30">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. <br><br>                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit
-                amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </p>
+              <div class="large mt-30" [innerHtml]="currentBlog.body">
+              </div>
             </div>
             <!-- / TEXT CONTAINER -->
           </div>
-          <div class="col-md-3">
+          <div class="col-md-4">
             <div class="width-100 pull-left">
               <h5 class="mt-0">Related posts</h5>
 
               <!-- SINGLE POST ITEM  -->
-              <div class="width-100 mb-15 pull-left">
-                <a href="#">
-                  <img src="assets/img/blog/cover-01.jpg" class="width-40 pull-left" alt="cover image">
-
-                  <h6 class="mt-0 mb-20 width-60 pl-15 pull-left">
-										Excepteur sint occ aecat cup idatat non
-										proident.</h6>
+              <div class="width-100 mb-15 pull-left" *ngFor="let blog of blogs">
+                <a (click)="onBlogPostClick(blog.id)">
+                  <img src="{{blog.image_url}}" class="width-40 pull-left" alt="cover image">
+                  <h6 class="mt-0 mb-20 width-60 pl-15 pull-left ellipsis">{{blog.title}}</h6>
                 </a>
               </div>
               <!-- / SINGLE POST ITEM  -->
 
-              <!-- SINGLE POST ITEM  -->
-              <div class="width-100 mb-15 pull-left">
-                <a href="#">
-                  <img src="assets/img/blog/cover-01.jpg" class="width-40 pull-left" alt="cover image">
-
-                  <h6 class="mt-0 mb-20 width-60 pl-15 pull-left">
-										Excepteur sint occ aecat cup idatat non
-										proident.</h6>
-                </a>
-              </div>
-              <!-- / SINGLE POST ITEM  -->
-
-              <!-- SINGLE POST ITEM  -->
-              <div class="width-100 mb-15 pull-left">
-                <a href="#">
-                  <img src="assets/img/blog/cover-01.jpg" class="width-40 pull-left" alt="cover image">
-
-                  <h6 class="mt-0 mb-20 width-60 pl-15 pull-left">
-										Excepteur sint occ aecat cup idatat non
-										proident.</h6>
-                </a>
-              </div>
-              <!-- / SINGLE POST ITEM  -->
-
-              <!-- SINGLE POST ITEM  -->
-              <div class="width-100 mb-15 pull-left">
-                <a href="#">
-                  <img src="assets/img/blog/cover-01.jpg" class="width-40 pull-left" alt="cover image">
-
-                  <h6 class="mt-0 mb-20 width-60 pl-15 pull-left">
-										Excepteur sint occ aecat cup idatat non
-										proident.</h6>
-                </a>
-              </div>
-              <!-- / SINGLE POST ITEM  -->
-
-              <!-- SINGLE POST ITEM  -->
-              <div class="width-100 mb-15 pull-left">
-                <a href="#">
-                  <img src="assets/img/blog/cover-01.jpg" class="width-40 pull-left" alt="cover image">
-
-                  <h6 class="mt-0 mb-20 width-60 pl-15 pull-left">
-										Excepteur sint occ aecat cup idatat non
-										proident.</h6>
-                </a>
-              </div>
-              <!-- / SINGLE POST ITEM  -->
-
-              <!-- SINGLE POST ITEM  -->
-              <div class="width-100 mb-15 pull-left">
-                <a href="#">
-                  <img src="assets/img/blog/cover-01.jpg" class="width-40 pull-left" alt="cover image">
-
-                  <h6 class="mt-0 mb-20 width-60 pl-15 pull-left">
-										Excepteur sint occ aecat cup idatat non
-										proident.</h6>
-                </a>
-              </div>
-              <!-- / SINGLE POST ITEM  -->
             </div>
           </div>
         </div>

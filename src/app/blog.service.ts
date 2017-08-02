@@ -10,6 +10,8 @@ import 'rxjs/add/observable/throw';
 @Injectable()
 export class BlogService {
 
+  public blogs = [];
+
   constructor(
     private http: Http
   ) {
@@ -25,44 +27,7 @@ export class BlogService {
       })
       .catch(this.handleError);
   }
-  //
-  // public getListings(params: String) {
-  //   return this.http
-  //     .get(BINDO_API_URL + '/listings' + params)
-  //     .map(response => {
-  //       return response.json();
-  //     })
-  //     .catch(this.handleError);
-  // }
-  //
-  // public getCustomers() {
-  //
-  // }
-  //
-  // public postEmail(email: Email): Observable<Email> {
-  //
-  //   return this.http
-  //     .post(BINDO_API_URL + '/email', email)
-  //     .map(response => {
-  //       return response.json();
-  //     })
-  //     .catch(this.handleError);
-  // }
-  //
-  // public authAdmin( email: string , password: string ): Observable<any> {
-  //     const json = {
-  //       'email' : email,
-  //       'password' : password
-  //     };
-  //
-  //     return this.http
-  //       .post(BINDO_API_URL + '/admin/login', json)
-  //       .map(response => {
-  //         return response.json();
-  //       })
-  //       .catch(this.handleError);
-  // }
-  //
+
   private handleError(error: Response | any) {
     console.error(error);
     return Observable.throw(error);
