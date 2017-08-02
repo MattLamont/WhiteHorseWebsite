@@ -33,8 +33,8 @@ export class BlogListingViewComponent implements OnInit {
     );
   }
 
-  onBlogPostClick( id: number ){
-    const newLink = ['/blog' , id ];
+  onBlogPostClick( name: string ){
+    const newLink = ['/blog' , name ];
     this.router.navigate(newLink);
   }
 

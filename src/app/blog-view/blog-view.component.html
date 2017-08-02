@@ -37,7 +37,7 @@
 
               <!-- SINGLE POST ITEM  -->
               <div class="width-100 mb-15 pull-left" *ngFor="let blog of blogs">
-                <a (click)="onBlogPostClick(blog.id)">
+                <a (click)="onBlogPostClick(blog.title)">
                   <img src="{{blog.image_url}}" class="width-40 pull-left" alt="cover image">
                   <h6 class="mt-0 mb-20 width-60 pl-15 pull-left ellipsis">{{blog.title}}</h6>
                 </a>
