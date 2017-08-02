@@ -12,7 +12,7 @@ export class BlogViewComponent implements OnInit {
 
   private metaDefinition = 'White Horse Vapor Denver offers a variety of vaping products including Hardware, E-Liquid, Accessories, and much more.';
   public sub: any;
-  public blog_id: any;
+  public blog_name: any;
   public blogIndex: any;
 
   public blogs: any;
@@ -26,7 +26,7 @@ export class BlogViewComponent implements OnInit {
     //this.metaService.addTag({ name: 'description', content: this.metaDefinition });
 
     this.sub = this.route.params.subscribe(params => {
-      this.blog_id = params['id'];
+      this.blog_name = params['id'];
 
       if (this.blogService.blogs.length == 0) {
         this.blogService
@@ -57,7 +57,7 @@ export class BlogViewComponent implements OnInit {
   }
 
   findBlogPost(element, index) {
-    if (element.id == this.blog_id) {
+    if (element.title == this.blog_name) {
       this.blogIndex = index;
       return true;
     }

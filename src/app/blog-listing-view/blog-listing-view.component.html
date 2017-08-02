@@ -14,7 +14,7 @@
         <div class="row flex-list">
           <!-- SINGLE POST ITEM  -->
           <div class="col-md-4 mb-60" *ngFor="let blog of blogs">
-            <a (click)="onBlogPostClick(blog.id)">
+            <a (click)="onBlogPostClick(blog.title)">
               <img src={{blog.image_url}} class="width-100" alt="cover image">
               <h4 class="mt-30 mb-20">
 								{{blog.title}}<br>
@@ -22,7 +22,7 @@
               <div [innerHtml]="blog.body" class="ellipsis">
               </div>
             </a>
-            <a class="btn btn-link pull-right text-right pr-0" (click)="onBlogPostClick(blog.id)">read more <span class="ti-arrow-right"></span></a>
+            <a class="btn btn-link pull-right text-right pr-0" (click)="onBlogPostClick(blog.title)">read more <span class="ti-arrow-right"></span></a>
           </div>
           <!-- / SINGLE POST ITEM  -->
       <!-- / ARTICLE LIST -->
