@@ -60,9 +60,9 @@ app.get('/departments', controllers.getDepartments);
 
 app.get('/customers', controllers.getCustomers);
 
-app.get('/blog/:id', controllers.getBlogPost);
+app.get('/blog/post/:id', controllers.getBlogPost);
 
-app.get('/blogs', controllers.getAllBlogPosts);
+app.get('/blog/posts', controllers.getAllBlogPosts);
 
 app.get('/images', controllers.getAllHomeImages);
 
