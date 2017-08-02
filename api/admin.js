@@ -6,9 +6,9 @@ var multer = require('multer');
 var multerS3 = require('multer-s3');
 
 aws.config.update({
-    accessKeyId: process.env.AWS_S3_KEY,
-    secretAccessKey: process.env.AWS_S3_SECRET,
-    region: 'us-west-1'
+  accessKeyId: process.env.AWS_S3_KEY,
+  secretAccessKey: process.env.AWS_S3_SECRET,
+  region: 'us-west-1'
 });
 
 s3 = new aws.S3();
@@ -69,26 +69,57 @@ exports.deleteBlogPost = function(req, res) {
     });
 }
 
-exports.createBlogImage = function(req, res , next) {
-  if( !req.file.location ){
+exports.createBlogImage = function(req, res, next) {
+  if (!req.file.location) {
     res.status(400).send({
       error: 'image upload failed'
     });
   }
-  console.log( req.file.location );
   var json = {
     'image_url': req.file.location
   };
-    res.send(json);
+  res.send(json);
 }
 
-exports.upload = multer({
-    storage: multerS3({
-        s3: s3,
-        bucket: 'whvaporblogimages',
-        key: function (req, file, cb) {
-            console.log(file);
-            cb(null, file.originalname); //use Date.now() for unique file keys
-        }
-    })
+exports.uploadBlogImage = multer({
+  storage: multerS3({
+    s3: s3,
+    bucket: 'whvapor-blog-images',
+    key: function(req, file, cb) {
+      console.log(file);
+      cb(null, file.originalname); //use Date.now() for unique file keys
+    }
+  })
 });
+
+exports.createHomepageImages = function(req, res , next) {
+  if (!req.file.location) {
+    res.status(400).send({
+      error: 'image upload failed'
+    });
+  }
+  var json = {
+    'image_url': req.file.location
+  };
+  res.send(json);
+}
+
+exports.uploadHomeImage = multer({
+  storage: multerS3({
+    s3: s3,
+    bucket: 'whvapor-home-images',
+    key: function(req, file, cb) {
+      console.log(file);
+      cb(null, file.originalname); //use Date.now() for unique file keys
+    }
+  })
+});
+
+exports.updateHomepageImages = function(req, res) {
+  knex('images')
+    .where('id', req.params.id)
+    .update(req.body)
+    .then(function() {
+      res.send(req.body);
+    });
+}

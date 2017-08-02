@@ -7,7 +7,6 @@ export const environment = {
   production: false,
 
   bindoApiUrl: 'http://localhost:3032',
-  adminApiUrl: 'http://localhost:3032',
   contactEmail: 'matthewlamont454@gmail.com',
   googleMapsApiKey: 'AIzaSyAygK8MzLci1lhhWGjNaIk64xBYZD6mZdI'
 };

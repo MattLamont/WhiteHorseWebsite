@@ -64,14 +64,20 @@ app.get('/blog/:id', controllers.getBlogPost);
 
 app.get('/blogs', controllers.getAllBlogPosts);
 
+app.get('/images', controllers.getAllHomeImages);
+
 /*
  *  API Private Routes
  */
-app.post('/admin/blog/image', passport.authenticate('bearer', {session: false}), admin.upload.single('image'), admin.createBlogImage);
+app.post('/admin/blog/image', passport.authenticate('bearer', {
+  session: false
+}), admin.uploadBlogImage.single('image'), admin.createBlogImage);
 
-app.post('/admin/login', passport.authenticate('local', {failureRedirect: '/admin/login/fail'}), admin.adminLogin);
+app.post('/admin/login', passport.authenticate('local', {
+  failureRedirect: '/admin/login/fail'
+}), admin.adminLogin);
 
-app.get( '/admin/login/fail' , admin.failLogin );
+app.get('/admin/login/fail', admin.failLogin);
 
 app.get('/admin/bindo/auth', passport.authenticate('bearer', {
   session: false
@@ -88,6 +94,16 @@ app.put('/admin/blog/:id', passport.authenticate('bearer', {
 app.delete('/admin/blog/:id', passport.authenticate('bearer', {
   session: false
 }), admin.deleteBlogPost);
+
+app.post('/admin/image', passport.authenticate('bearer', {
+  session: false
+}), admin.uploadHomeImage.single('image'), admin.createHomepageImages);
+
+app.put('/admin/image/:id', passport.authenticate('bearer', {
+  session: false
+}), admin.updateHomepageImages);
+
+
 /*
  *  Static HTML Routes
  */
@@ -114,7 +130,7 @@ if (process.env.NODE_ENV) {
 }
 
 if (!process.env.PORT) {
-  process.env.PORT = 3033;
+  process.env.PORT = 3032;
 }
 
 app.listen(process.env.PORT);
