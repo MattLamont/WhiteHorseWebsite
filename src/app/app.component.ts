@@ -3,6 +3,7 @@ import { ActivatedRoute, Router} from '@angular/router';
 
 import { BindoApiService } from './bindo-api.service';
 import { SharedDataService } from './shared-data.service';
+import { BlogService } from './blog.service';
 
 import { ModalDirective } from 'ngx-bootstrap/modal/modal.component';
 
@@ -11,7 +12,8 @@ import { ModalDirective } from 'ngx-bootstrap/modal/modal.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   providers: [BindoApiService,
-              SharedDataService]
+              SharedDataService,
+              BlogService]
 })
 
 export class AppComponent implements OnInit {
