@@ -16,6 +16,7 @@ export class HomepageViewComponent implements OnInit {
 
   public new_listings: Object = [];
   public featured_listings: Object = [];
+  public home_page_images:Object;
 
   public loading = false;
 
@@ -30,6 +31,24 @@ export class HomepageViewComponent implements OnInit {
     //set HTML title tag for SEO
     this.titleService.setTitle('Home | White Horse Vapor Denver');
     //this.metaService.addTag({ name: 'description', content: this.metaDefinition });
+
+    //get the homepage images if they aren't loaded yet
+    if( this.sharedDataService.home_page_images.length == 0 ){
+
+      this.bindoApiService
+        .getHomeImages()
+        .subscribe(
+        (images) => {
+          this.home_page_images = images;
+          this.sharedDataService.home_page_images = images;
+        }
+        );
+    }else{
+      this.home_page_images = this.sharedDataService.home_page_images;
+    }
+
+
+
 
     if( this.sharedDataService.new_listings && this.sharedDataService.featured_listings ){
         this.loading = false;

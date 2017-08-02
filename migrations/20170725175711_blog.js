@@ -19,6 +19,7 @@ exports.up = function(knex, Promise) {
             table.string('image_url');
             table.timestamp('created_at').defaultTo(knex.fn.now());
         })
+
     ])
 };
 
