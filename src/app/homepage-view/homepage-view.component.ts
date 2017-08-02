@@ -16,9 +16,10 @@ export class HomepageViewComponent implements OnInit {
 
   public new_listings: Object = [];
   public featured_listings: Object = [];
-  public home_page_images:Object;
+  public home_page_images = [];
 
   public loading = false;
+  public imagesLoading = true;
 
   constructor(private route: ActivatedRoute, private router: Router,
     private bindoApiService: BindoApiService, private sharedDataService: SharedDataService,
@@ -34,6 +35,7 @@ export class HomepageViewComponent implements OnInit {
 
     //get the homepage images if they aren't loaded yet
     if( this.sharedDataService.home_page_images.length == 0 ){
+      this.imagesLoading = true;
 
       this.bindoApiService
         .getHomeImages()
@@ -41,9 +43,11 @@ export class HomepageViewComponent implements OnInit {
         (images) => {
           this.home_page_images = images;
           this.sharedDataService.home_page_images = images;
+          this.imagesLoading = false;
         }
         );
     }else{
+      this.imagesLoading = false;
       this.home_page_images = this.sharedDataService.home_page_images;
     }
 
