@@ -179,7 +179,7 @@ exports.getBlogPost = function( req , res){
 }
 
 exports.getAllHomeImages = function( req , res ){
-  knex('images').select().then(function(data){
+  knex('images').select().orderBy('id', 'asc').then(function(data){
       res.json( data );
   });
 }
