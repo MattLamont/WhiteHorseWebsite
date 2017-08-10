@@ -13,9 +13,9 @@
       <div class="container-fluid">
         <div class="row flex-list">
           <!-- SINGLE POST ITEM  -->
-          <div class="col-md-4 mb-60" *ngFor="let blog of blogs">
+          <div class="col-xs-12 col-md-4 mb-60" *ngFor="let blog of blogs">
             <a (click)="onBlogPostClick(blog.title)">
-              <img src={{blog.image_url}} class="width-100" alt="cover image">
+              <img src={{blog.image_url}} class="width-100 img-responsive" alt="cover image">
               <h4 class="mt-30 mb-20">
 								{{blog.title}}<br>
 								<span class="x-small text-muted">{{blog.created_at | date: 'MMM, dd yyyy'}}</span></h4>
