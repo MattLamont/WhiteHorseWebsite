@@ -43,12 +43,6 @@ export class SharedDataService {
             'id': 168166,
             'results': [],
             'paging': {}
-        },
-        {
-            'name': 'CBD Oil',
-            'id': 168838,
-            'results': [],
-            'paging': {}
         }
     ];
 
