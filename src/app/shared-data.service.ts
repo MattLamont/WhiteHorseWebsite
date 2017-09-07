@@ -26,12 +26,12 @@ export class SharedDataService {
             'results': [],
             'paging': {}
         },
-        {
+        /*{
             'name': 'Wax and Dry Herb',
             'id': 168154,
             'results': [],
             'paging': {}
-        },
+        },*/
         {
             'name': 'Disposable and Pod Systems',
             'id': 168163,
